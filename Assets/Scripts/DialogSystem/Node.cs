@@ -14,7 +14,7 @@ public class Node : MonoBehaviour {
 
 	string text;
 
-    [MenuItem("GameObject/Dialog/Node", false, 8)]
+    [MenuItem("GameObject/FishGame/Dialog System/Node", false, 8)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
     {
         GameObject newNode = new GameObject("Node");

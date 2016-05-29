@@ -30,15 +30,15 @@ public class JournalPanel : MonoBehaviour {
 		clueItem.transform.localPosition = new Vector3(0, -35 * MainManager.instance.ClueManager.CluesFound, 0);
 
 		clueItem.ClueName.text = clue.name;
-		switch (clue.category)
+		switch (clue.clueLevel)
 		{
-			case Clue.Category.firstLvl:
+			case Clue.ClueLevel.firstLvl:
 				clueItem.ClueType.color = Color.red;
 				break;
-			case Clue.Category.secondLvl:
+			case Clue.ClueLevel.secondLvl:
 				clueItem.ClueType.color = Color.yellow;
 				break;
-			case Clue.Category.thirdLvl:
+			case Clue.ClueLevel.thirdLvl:
 				clueItem.ClueType.color = Color.green;
 				break;
 		}

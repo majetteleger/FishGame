@@ -15,7 +15,7 @@ public class Dialog : MonoBehaviour {
 
 	Node[] dialogNodes;
 
-    [MenuItem("GameObject/Dialog/Dialog", false, 7)]
+    [MenuItem("GameObject/FishGame/Dialog System/Dialog", false, 7)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
     {
         GameObject newDialog = new GameObject("Dialog");
@@ -24,7 +24,6 @@ public class Dialog : MonoBehaviour {
         Selection.activeObject = newDialog;
         newDialog.AddComponent<Dialog>();
         newDialog.name += newDialog.transform.parent.childCount;
-		// new comment line
     }
 
     void Start(){

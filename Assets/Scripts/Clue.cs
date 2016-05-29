@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using UnityEditor;
 
 public class Clue : MonoBehaviour {
 	
@@ -7,13 +9,13 @@ public class Clue : MonoBehaviour {
 	public bool state;
 	public string name;
 	public string description;
-	public enum Category
+	public enum ClueLevel
 	{
 		firstLvl,
 		secondLvl,
 		thirdLvl
 	}
-	public Category category;
+	public ClueLevel clueLevel;
 	//
 
 	// private stuff
@@ -42,11 +44,19 @@ public class Clue : MonoBehaviour {
 	public void setState(bool s){state = s;}
 	public void setPosition(int p){position = p;}
 	//
-	
+
+	[MenuItem("GameObject/FishGame/Clue", false, 7)]
+	static void CreateCustomGameObject(MenuCommand menuCommand)
+	{
+		GameObject newClue = new GameObject("Clue");
+		GameObjectUtility.SetParentAndAlign(newClue, menuCommand.context as GameObject);
+		Undo.RegisterCreatedObjectUndo(newClue, "Create " + newClue.name);
+		Selection.activeObject = newClue;
+		newClue.AddComponent<Clue>();
+	}
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame

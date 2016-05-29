@@ -9,7 +9,7 @@ public class Condition : MonoBehaviour {
 	public Clue[] Clues;
 	public Node altNode;
 
-    [MenuItem("GameObject/Dialog/Condition", false, 10)]
+    [MenuItem("GameObject/FishGame/Dialog System/Condition", false, 10)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
     {
         GameObject newCondition = new GameObject("Condition");

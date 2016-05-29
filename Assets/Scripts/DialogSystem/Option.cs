@@ -10,7 +10,7 @@ public class Option : MonoBehaviour {
 
 	string text;
 
-    [MenuItem("GameObject/Dialog/Option", false, 9)]
+    [MenuItem("GameObject/FishGame/Dialog System/Option", false, 9)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
     {
         GameObject newOption = new GameObject("Option");
