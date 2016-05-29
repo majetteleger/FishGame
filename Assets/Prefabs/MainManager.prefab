@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &191042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435814}
+  - 114: {fileID: 11412214}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435814
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11412214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fabd75faeee174abb4cec05e685591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClueManager: {fileID: 11438566, guid: 1769017f2281a594192041a88f86ef17, type: 2}
+  ClickManager: {fileID: 11403514, guid: 30f5c3ca52dadf740bf0553ba2ed1ffd, type: 2}
+  UIManager: {fileID: 11426002, guid: 2e18b1e1feb50254181a4a2a3ef55832, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: managers.Array.data[0]
+      value: 
+      objectReference: {fileID: 139538, guid: 0df01346b8177874db2df6f3db34aa16, type: 2}
+    - target: {fileID: 0}
+      propertyPath: managers.Array.data[1]
+      value: 
+      objectReference: {fileID: 167026, guid: 929ecc9e56b6c254f97d1c0fa31ba034, type: 2}
+    - target: {fileID: 0}
+      propertyPath: managers.Array.data[2]
+      value: 
+      objectReference: {fileID: 160852, guid: 3a16e520b850b7243a1988d2d155b43c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: MainCanvas
+      value: 
+      objectReference: {fileID: 22348726, guid: 4467fab52f42a0a49b6451cc5c56865a,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 191042}
+  m_IsPrefabParent: 1
