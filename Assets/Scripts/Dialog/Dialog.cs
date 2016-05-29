@@ -24,6 +24,7 @@ public class Dialog : MonoBehaviour {
         Selection.activeObject = newDialog;
         newDialog.AddComponent<Dialog>();
         newDialog.name += newDialog.transform.parent.childCount;
+		// new comment line
     }
 
     void Start(){
