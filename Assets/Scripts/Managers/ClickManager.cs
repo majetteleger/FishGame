@@ -1,26 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ClickManager : MonoBehaviour {
 
     public static ClickManager instance = null;
 
-    private Dialog _activeDialog;
+	private bool _canClick = true;
 
-    public Dialog ActiveDialog
-    {
-        get { return _activeDialog; }
-        set { _activeDialog = value; }
-    }
-
-    private bool _waitingForOption;
-
-    public bool WaitingForOption
-    {
-        get { return _waitingForOption; }
-        set { _waitingForOption = value; }
-    }
-
+	public bool CanClick
+	{
+		get { return _canClick; }
+		set { _canClick = value; }
+	}
+	
 	private void Awake()
 	{
 		if (instance == null)
@@ -34,44 +27,38 @@ public class ClickManager : MonoBehaviour {
 
 	void Update (){
 		
-		if (Input.GetMouseButtonDown (0)) {
-
-			if (_activeDialog == null && !_waitingForOption) {
-
+		if (Input.GetMouseButtonDown (0))
+		{
+			if (MainManager.instance.ActiveDialog == null && _canClick)
+			{
 				Vector2 pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 				RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(pos), Vector2.zero);
 
-				if (hitInfo) {
-					
+				if (hitInfo)
+				{
 					//just a test to see what was clicked
 					//Debug.Log ("Clicked " + hitInfo.transform.gameObject.name); 
 
-					// click commands begin
-
-
-					if (hitInfo.transform.gameObject.name == "Cabin") {
-						Application.LoadLevel ("Indoors");
+					ObjectBehaviour objectData = hitInfo.transform.gameObject.GetComponent<ObjectBehaviour>();
+					
+					if (objectData.levelToLoad != null && objectData.levelToLoad != "")
+					{
+						SceneManager.LoadScene(objectData.levelToLoad);
 					}
-
-					if (hitInfo.transform.gameObject.name == "Door") {
-						Application.LoadLevel ("Outdoors");
+					
+					if (objectData.dialog != null)
+					{
+						objectData.dialog.initiateDialog ();
 					}
-
-					// Start executing a dialog if clicked
-					if (hitInfo.transform.gameObject.GetComponent<ObjectBehaviour>().dialog != null) {
-						hitInfo.transform.gameObject.GetComponent<ObjectBehaviour> ().dialog.initiateDialog ();
-						_activeDialog = hitInfo.transform.gameObject.GetComponent<ObjectBehaviour> ().dialog;
-					}
-
-					// click commands end
-						
 				} 
+			}
+			else if(!_canClick)
+			{
 
-			} else if(_waitingForOption){
-				
-
-			} else {
-                _activeDialog.advanceDialog ();
+			}
+			else
+			{
+				MainManager.instance.ActiveDialog.advanceDialog ();
 			}
 
 		}

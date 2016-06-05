@@ -9,9 +9,18 @@ public class PlayerController : MonoBehaviour {
 	private float pathPosition = 0;
 	private iTweenPath path;
 
+	private bool _canMove;
+
+	public bool CanMove
+	{
+		get { return _canMove; }
+		set { _canMove = value; }
+	}
+
 	void Awake()
 	{
 		path = Camera.main.GetComponent<iTweenPath>();
+		_canMove = true;
 	}
 
 	void Update()
@@ -23,11 +32,15 @@ public class PlayerController : MonoBehaviour {
 			transform.position = path.nodes[0];
 		}
 
-		float moveHorizontal = Input.GetAxis("Horizontal");
+		if(_canMove)
+		{
+			float moveHorizontal = Input.GetAxis("Horizontal");
 
-		pathPosition = Mathf.Clamp(pathPosition + (moveHorizontal * (playerSpeed / 50) * Time.deltaTime), 0, 1);
-		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath, pathPosition);
-		iTween.MoveUpdate(gameObject, iTween.Hash("position", coordinateOnPath, "time", Time.deltaTime));
+			pathPosition = Mathf.Clamp(pathPosition + (moveHorizontal * (playerSpeed / 50) * Time.deltaTime), 0, 1);
+			Vector3 coordinateOnPath = iTween.PointOnPath(controlPath, pathPosition);
+			iTween.MoveUpdate(gameObject, iTween.Hash("position", coordinateOnPath, "time", Time.deltaTime));
+		}
+		
 
 		//	private void FaceDirection(Vector2 direction)
 		//{

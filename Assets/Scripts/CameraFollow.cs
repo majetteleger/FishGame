@@ -2,26 +2,24 @@
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
+	
+	public float Lboundaries;
+	public float Rboundaries;
 
-	[SerializeField]
-	Transform mTarget;
-
-	[SerializeField]
-	float Lboundaries;
-	[SerializeField]
-	float Rboundaries;
-
-	float kFollowSpeed = 3.5f;
-	float stepOverThreshold = 0.5f;
-
-
-
+	private Transform _target;
+	private float kFollowSpeed = 3.5f;
+	private float stepOverThreshold = 0.5f;
+	
 	void Update ()
 	{
-		if(mTarget != null)
+		if (_target == null)
+		{
+			_target = MainManager.instance.PlayerController.GetComponent<Transform>();
+		}
+		else
 		{
 			if (((-Lboundaries) <= (transform.position.x)) && ((transform.position.x) <= (Rboundaries))) {
-				Vector3 targetPosition = new Vector3 (mTarget.transform.position.x, transform.position.y, transform.position.z);
+				Vector3 targetPosition = new Vector3 (_target.transform.position.x, transform.position.y, transform.position.z);
 				Vector3 direction = targetPosition - transform.position;
 
 				if(direction.magnitude > stepOverThreshold)

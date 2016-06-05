@@ -9,8 +9,25 @@ public class MainManager : MonoBehaviour {
 	public ClueManager ClueManager;
 	public ClickManager ClickManager;
 	public UIManager UIManager;
+	public PlayerController PlayerPrefab;
 
-	private void Awake()
+	private PlayerController _playerController;
+
+	public PlayerController PlayerController
+	{
+		get { return _playerController; }
+		set { _playerController = value; }
+	}
+
+	private Dialog _activeDialog;
+
+	public Dialog ActiveDialog
+	{
+		get { return _activeDialog; }
+		set { _activeDialog = value; }
+	}
+	
+	void Awake()
 	{
         if (instance == null)
             instance = this;
@@ -35,6 +52,19 @@ public class MainManager : MonoBehaviour {
 			Instantiate(UIManager);
 		}
 
+	}
+
+	void Update()
+	{
+		if (FindObjectOfType<PlayerController>() == null && Camera.main.GetComponent<iTweenPath>())
+		{
+			_playerController = Instantiate(PlayerPrefab) as PlayerController;
+		}
+		//else if(FindObjectOfType<PlayerController>() != null && !Camera.main.GetComponent<iTweenPath>())
+		//{
+		//	Debug.Log(1);
+		//	_playerController = null;
+		//}
 	}
     
 }

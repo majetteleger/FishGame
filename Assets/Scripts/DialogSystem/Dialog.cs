@@ -36,6 +36,8 @@ public class Dialog : MonoBehaviour {
 	}
     
 	public void initiateDialog(){
+		MainManager.instance.ActiveDialog = this;
+		MainManager.instance.PlayerController.CanMove = false;
 		currentNode = firstNode;
         
 		tempDialog = Instantiate (dialogBox) as GameObject;
@@ -94,8 +96,9 @@ public class Dialog : MonoBehaviour {
     public void endDialog()
     {
         Destroy(tempDialog);
-		ClickManager.instance.ActiveDialog = null;
-    }
+		MainManager.instance.ActiveDialog = null;
+		MainManager.instance.PlayerController.CanMove = true;
+	}
 
     public void DisplayNode()
     {
@@ -117,7 +120,7 @@ public class Dialog : MonoBehaviour {
                 int targetIndex = i;
                 b.onClick.AddListener(() => setTargetNode(currentNode.options[targetIndex].targetNode));
             }
-            ClickManager.instance.WaitingForOption = true;
+            ClickManager.instance.CanClick = false;
         }
 
     }
@@ -125,7 +128,7 @@ public class Dialog : MonoBehaviour {
     public void setTargetNode(Node targetNode)
     {
         currentNode.nextNode = targetNode;
-		ClickManager.instance.WaitingForOption = false;
+		ClickManager.instance.CanClick = true;
         advanceDialog();
     }
 

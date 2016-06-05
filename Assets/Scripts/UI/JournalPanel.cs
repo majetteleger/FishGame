@@ -17,9 +17,17 @@ public class JournalPanel : MonoBehaviour {
 		else if (instance != this)
 			Destroy(gameObject);
 	}
-	
+
+	void OnEnable()
+	{
+		ClickManager.instance.CanClick = false;
+		MainManager.instance.PlayerController.CanMove = false;
+	}
+
 	void OnDisable()
 	{
+		ClickManager.instance.CanClick = true;
+		MainManager.instance.PlayerController.CanMove = true;
 		RemoveNewLabels();
 	}
 
