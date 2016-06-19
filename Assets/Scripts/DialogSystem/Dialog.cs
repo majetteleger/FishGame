@@ -37,14 +37,24 @@ public class Dialog : MonoBehaviour {
     
 	public void initiateDialog(){
 		MainManager.instance.ActiveDialog = this;
-		MainManager.instance.PlayerController.CanMove = false;
+
+		if(MainManager.instance.PlayerController != null)
+		{
+			MainManager.instance.PlayerController.CanMove = false;
+		}
+		
 		currentNode = firstNode;
         
 		tempDialog = Instantiate (dialogBox) as GameObject;
 		tempDialog.name = "DialogBox";
 
         DisplayNode();
-    }
+
+		if (currentNode.giveClue != null)
+		{
+			ClueManager.instance.GiveClue(currentNode.giveClue);
+		}
+	}
 
 	public void advanceDialog(){
 
@@ -97,7 +107,11 @@ public class Dialog : MonoBehaviour {
     {
         Destroy(tempDialog);
 		MainManager.instance.ActiveDialog = null;
-		MainManager.instance.PlayerController.CanMove = true;
+
+		if (MainManager.instance.PlayerController != null)
+		{
+			MainManager.instance.PlayerController.CanMove = true;
+		}
 	}
 
     public void DisplayNode()

@@ -6,9 +6,9 @@ using UnityEditor;
 public class Clue : MonoBehaviour {
 	
 	// public stuff
-	public bool state;
-	public string name;
-	public string description;
+	public bool State;
+	public string Name;
+	public string Description;
 	public enum ClueLevel
 	{
 		firstLvl,
@@ -18,31 +18,24 @@ public class Clue : MonoBehaviour {
 	public ClueLevel clueLevel;
 	//
 
-	// private stuff
-	public int position;
-	private enum Status
+	private bool _isNew;
+	public bool IsNew
 	{
-		newC,
-		normalC,
-		usedC,
+		get { return _isNew; }
+		set { _isNew = value; }
 	}
-	private Status status;
+
+	private int _position;
+	public int Position
+	{
+		get { return _position; }
+		set { _position = value; }
+	}
 	//
 
 	// static stuff
 	public static int cluesFound = 0;
 	public static int getcluesFound(){return cluesFound;}
-	//
-
-	// accessors
-	public bool getState(){return state;}
-	public string getName(){return name;}
-	public int getPosition(){return position;}
-	//
-
-	// mutators
-	public void setState(bool s){state = s;}
-	public void setPosition(int p){position = p;}
 	//
 
 	[MenuItem("GameObject/FishGame/Clue", false, 7)]
@@ -54,18 +47,4 @@ public class Clue : MonoBehaviour {
 		Selection.activeObject = newClue;
 		newClue.AddComponent<Clue>();
 	}
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void setTrue(){
-		
-	}
-
 }

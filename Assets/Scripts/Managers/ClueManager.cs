@@ -41,17 +41,20 @@ public class ClueManager : MonoBehaviour {
 
 	public void GiveClue(Clue clue)
     {
-        clue.state = true;
-        clue.setPosition(_cluesFound);
-		UIManager.instance.JournalPanel.DisplayClue(clue);
-		UIManager.instance.InGamePanel.NewClueLabel.gameObject.SetActive(true);
-		_cluesFound++;
-		
+		if(clue.State == false)
+		{
+			clue.State = true;
+			clue.IsNew = true;
+			clue.Position = _cluesFound;
+			JournalPanel.instance.DisplayClue(clue);
+			UIManager.instance.InGamePanel.NewClueLabel.gameObject.SetActive(true);
+			_cluesFound++;
+		}
     }
 
     public bool CheckClue(Clue clue)
     {
-        return clue.state;
+        return clue.State;
     }
 
 }

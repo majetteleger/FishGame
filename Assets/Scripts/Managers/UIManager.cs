@@ -7,11 +7,17 @@ public class UIManager : MonoBehaviour {
 
     public static UIManager instance = null;
 
-    public Canvas MainCanvas;
-    public InGamePanel InGamePanel;
+	public InGamePanel InGamePanel;
 	public JournalPanel JournalPanel;
 	public StartPanel StartPanel;
 	public PausePanel PausePanel;
+
+	public InGamePanel InGamePanelPrefab;
+	public JournalPanel JournalPanelPrefab;
+	public StartPanel StartPanelPrefab;
+	public PausePanel PausePanelPrefab;
+
+	private Canvas _mainCanvas;
 
 	private void Awake()
 	{
@@ -33,17 +39,45 @@ public class UIManager : MonoBehaviour {
 
 	private void LoadPanels()
 	{
-		if (InGamePanel == null)
-			InGamePanel = GetComponentInChildren<InGamePanel>(true);
+		if(_mainCanvas == null)
+		{
+			_mainCanvas = FindObjectOfType<Canvas>();
+		}
 
-		if (JournalPanel == null)
-			JournalPanel = GetComponentInChildren<JournalPanel>(true);
+		if(!FindObjectOfType<InGamePanel>())
+		{
+			InGamePanel = Instantiate(InGamePanelPrefab);
+			InGamePanel.transform.SetParent(_mainCanvas.transform, false);
+		}
 
-		if (StartPanel == null)
-			StartPanel = GetComponentInChildren<StartPanel>(true);
+		if (!FindObjectOfType<JournalPanel>())
+		{
+			JournalPanel = Instantiate(JournalPanelPrefab);
+			JournalPanel.transform.SetParent(_mainCanvas.transform, false);
+			JournalPanel.gameObject.SetActive(false);
 
-		if (PausePanel == null)
-			PausePanel = GetComponentInChildren<PausePanel>(true);
+			foreach (Clue clue in ClueManager.instance.Clues)
+			{
+				if(clue.State)
+				{
+					JournalPanel.instance.DisplayClue(clue);
+				}
+			}
+		}
+
+		if (!FindObjectOfType<StartPanel>())
+		{
+			StartPanel = Instantiate(StartPanelPrefab);
+			StartPanel.transform.SetParent(_mainCanvas.transform, false);
+			StartPanel.gameObject.SetActive(false);
+		}
+
+		if (!FindObjectOfType<PausePanel>())
+		{
+			PausePanel = Instantiate(PausePanelPrefab);
+			PausePanel.transform.SetParent(_mainCanvas.transform, false);
+			PausePanel.gameObject.SetActive(false);
+		}
 	}
 
 }

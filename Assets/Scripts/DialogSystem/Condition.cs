@@ -23,7 +23,7 @@ public class Condition : MonoBehaviour {
     public bool isTrue(){
 		foreach (Clue clue in Clues)
 		{
-			if(clue.state == false){
+			if(clue.State == false){
 				return false;
 			}
 		} 

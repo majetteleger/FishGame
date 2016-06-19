@@ -218,7 +218,7 @@ GameObject:
   - 4: {fileID: 403202}
   - 114: {fileID: 11411816}
   m_Layer: 0
-  m_Name: Old Newspaper  Clippings
+  m_Name: Old Newspaper Clippings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,11 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: "Ice\xADfishing Hole"
-  description: My supplies ran out weeks ago. I've been fishing to survive.
+  State: 0
+  Name: "Ice\xADfishing Hole"
+  Description: My supplies ran out weeks ago. I've been fishing to survive.
   clueLevel: 2
-  position: 0
 --- !u!114 &11411670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,11 +547,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Fishing Pole
-  description: "A solid\xADquality fishing p132ole."
+  State: 0
+  Name: Fishing Pole
+  Description: "A solid\xADquality fishing pole."
   clueLevel: 2
-  position: 0
 --- !u!114 &11411816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -564,12 +562,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Old Newspaper  Clippings
-  description: "These talk about my grandfather leading an expedition to the\r north
+  State: 0
+  Name: Old Newspaper Clippings
+  Description: "These talk about my grandfather leading an expedition to the\r north
     to investigate strange seismic activity."
   clueLevel: 1
-  position: 0
 --- !u!114 &11426958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,11 +578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Radio
-  description: The only signal it picks up is garbled and unintelligible.
+  State: 0
+  Name: Radio
+  Description: The only signal it picks up is garbled and unintelligible.
   clueLevel: 2
-  position: 0
 --- !u!114 &11432352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,11 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Lantern
-  description: This thing barely works anymore.
+  State: 0
+  Name: Lantern
+  Description: This thing barely works anymore.
   clueLevel: 2
-  position: 0
 --- !u!114 &11433982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -613,11 +608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Fishing Gear
-  description: My survival has depended on this fishing gear.
+  State: 0
+  Name: Fishing Gear
+  Description: My survival has depended on this fishing gear.
   clueLevel: 2
-  position: 0
 --- !u!114 &11435664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -629,12 +623,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Recent Newspaper Clippings
-  description: "These talk about how my grandfather's expedition never\r returned
+  State: 0
+  Name: Recent Newspaper Clippings
+  Description: "These talk about how my grandfather's expedition never\r returned
     from the north."
   clueLevel: 1
-  position: 0
 --- !u!114 &11436430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,12 +639,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Magazines
-  description: "Science\xADrelated magazines talking about strange seismic\r activity
+  State: 0
+  Name: Magazines
+  Description: "Science\xADrelated magazines talking about strange seismic\r activity
     happening up here."
   clueLevel: 1
-  position: 0
 --- !u!114 &11437142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -663,12 +655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Scotch
-  description: "This was here when I arrived. It reminds me of the last time I\r saw
+  State: 0
+  Name: Scotch
+  Description: "This was here when I arrived. It reminds me of the last time I\r saw
     my father..."
   clueLevel: 0
-  position: 0
 --- !u!114 &11438566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -692,11 +683,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: ClueA
-  description: Aaaa
+  State: 0
+  Name: ClueA
+  Description: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   clueLevel: 0
-  position: 0
 --- !u!114 &11442904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -708,11 +698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: ClueB
-  description: Bbbb
+  State: 0
+  Name: ClueB
+  Description: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
   clueLevel: 1
-  position: 0
 --- !u!114 &11445976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,11 +713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Faded Map
-  description: "An old map with indecipherable notes on it. Hasn't been\r useful."
+  State: 0
+  Name: Faded Map
+  Description: "An old map with indecipherable notes on it. Hasn't been\r useful."
   clueLevel: 2
-  position: 0
 --- !u!114 &11452446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,11 +728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Door
-  description: Sometimes it gets so cold this door freezes shut.
+  State: 0
+  Name: 
+  Description: 
   clueLevel: 2
-  position: 0
 --- !u!114 &11481960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,11 +743,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Safe
-  description: I haven't been able to open this. I don't know what's inside.
+  State: 0
+  Name: Safe
+  Description: I haven't been able to open this. I don't know what's inside.
   clueLevel: 1
-  position: 0
 --- !u!114 &11492040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -772,11 +758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: ClueC
-  description: Cccc
+  State: 0
+  Name: ClueC
+  Description: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
   clueLevel: 2
-  position: 0
 --- !u!114 &11495452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,11 +773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Ice Pick
-  description: "A reliable ice\xADpick, good for breaking ice."
+  State: 0
+  Name: Ice Pick
+  Description: "A reliable ice\xADpick, good for breaking ice."
   clueLevel: 1
-  position: 0
 --- !u!114 &11498292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,12 +788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  name: Bible
-  description: "My father wasn't religious, so this must have belonged to my\r grandfather.
+  State: 0
+  Name: Bible
+  Description: "My father wasn't religious, so this must have belonged to my\r grandfather.
     A lot of pages are missing."
   clueLevel: 1
-  position: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

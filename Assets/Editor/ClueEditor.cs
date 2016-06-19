@@ -10,12 +10,12 @@ public class ClueEditor : Editor
 		Clue clue = target as Clue;
 
 		EditorGUILayout.LabelField("Name");
-		clue.name = EditorGUILayout.TextField(clue.name);
+		clue.Name = EditorGUILayout.TextField(clue.Name);
 
 		clue.clueLevel = (Clue.ClueLevel)EditorGUILayout.EnumPopup("Level", clue.clueLevel);
 
 		EditorGUILayout.LabelField("Description");
-		clue.description = EditorGUILayout.TextArea(clue.description);
+		clue.Description = EditorGUILayout.TextArea(clue.Description);
 		EditorStyles.textField.wordWrap = true;
 
 		clue.gameObject.name = (clue.name == "" || clue.name == null) ? "<clue>" : clue.name;
