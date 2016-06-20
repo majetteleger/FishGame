@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NewClueLabel: {fileID: 11456088}
+  ObjectActionButton: {fileID: 11490954, guid: 89fdde3e469395c47bd48864f2baf4e7, type: 2}
 --- !u!114 &11478968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,7 +424,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: ObjectActionButton
+      value: 
+      objectReference: {fileID: 11490954, guid: 89fdde3e469395c47bd48864f2baf4e7,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170640}

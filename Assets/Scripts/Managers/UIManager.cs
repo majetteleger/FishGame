@@ -19,6 +19,12 @@ public class UIManager : MonoBehaviour {
 
 	private Canvas _mainCanvas;
 
+	public Canvas MainCanvas
+	{
+		get { return _mainCanvas; }
+		set { _mainCanvas = value; }
+	}
+
 	private void Awake()
 	{
 		if (instance == null)

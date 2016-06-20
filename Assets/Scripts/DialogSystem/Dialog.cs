@@ -7,13 +7,11 @@ using UnityEditor;
 public class Dialog : MonoBehaviour {
 
 	public string character;
-    public Node firstNode;
-
-    Node currentNode;
-	GameObject dialogBox, tempDialog, optionButton, tempOption;
-	Text[] boxContents;
-
-	Node[] dialogNodes;
+	
+	private  Node _currentNode;
+	private GameObject _dialogBox, _tempDialog, _optionButton, _tempOption;
+	private Text[] _boxContents;
+	private Node[] _dialogNodes;
 
     [MenuItem("GameObject/FishGame/Dialog System/Dialog", false, 7)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
@@ -27,38 +25,42 @@ public class Dialog : MonoBehaviour {
     }
 
     void Start(){
-		dialogNodes = GetComponentsInChildren<Node> ();
+		_dialogNodes = GetComponentsInChildren<Node> ();
 		AssignClues();
 
-		dialogBox = Resources.Load ("DialogBox") as GameObject;
-		optionButton = Resources.Load ("OptionButton") as GameObject;
+		_dialogBox = Resources.Load ("DialogBox") as GameObject;
+		_optionButton = Resources.Load ("OptionButton") as GameObject;
 
 	}
     
-	public void initiateDialog(){
+	public void initiateDialog(Node firstNode = null){
 		MainManager.instance.ActiveDialog = this;
+		if(firstNode == null)
+		{
+			firstNode = transform.GetChild(0).GetComponent<Node>();
+		}
 
-		if(MainManager.instance.PlayerController != null)
+		if (MainManager.instance.PlayerController != null)
 		{
 			MainManager.instance.PlayerController.CanMove = false;
 		}
 		
-		currentNode = firstNode;
+		_currentNode = firstNode;
         
-		tempDialog = Instantiate (dialogBox) as GameObject;
-		tempDialog.name = "DialogBox";
+		_tempDialog = Instantiate (_dialogBox) as GameObject;
+		_tempDialog.name = "DialogBox";
 
         DisplayNode();
 
-		if (currentNode.giveClue != null)
+		if (_currentNode.giveClue != null)
 		{
-			ClueManager.instance.GiveClue(currentNode.giveClue);
+			ClueManager.instance.GiveClue(_currentNode.giveClue);
 		}
 	}
 
 	public void advanceDialog(){
 
-        if(currentNode.options.Length > 0)
+        if(_currentNode.options.Length > 0)
         {
             Button[] tmp = FindObjectsOfType<Button>();
             foreach (Button obj in tmp)
@@ -70,29 +72,29 @@ public class Dialog : MonoBehaviour {
             }
         }
         
-        if (currentNode.nextNode != null)
+        if (_currentNode.nextNode != null)
         {
             
-            currentNode = currentNode.nextNode;
+            _currentNode = _currentNode.nextNode;
 
-            if (currentNode.conditions.Length > 0)
+            if (_currentNode.conditions.Length > 0)
             {
                 if(EvaluateConditions() != null)
                 {
-                    currentNode = EvaluateConditions().altNode;
+                    _currentNode = EvaluateConditions().altNode;
                 }
             }
 
-            if(currentNode.permanentChoice && currentNode.nextNode != null)
+            if(_currentNode.permanentChoice && _currentNode.nextNode != null)
             {
-                currentNode = currentNode.nextNode;
+                _currentNode = _currentNode.nextNode;
             }
 
             DisplayNode();
 
-            if (currentNode.giveClue != null)
+            if (_currentNode.giveClue != null)
             {
-                ClueManager.instance.GiveClue(currentNode.giveClue);
+                ClueManager.instance.GiveClue(_currentNode.giveClue);
             }
 
         }
@@ -105,7 +107,7 @@ public class Dialog : MonoBehaviour {
 
     public void endDialog()
     {
-        Destroy(tempDialog);
+        Destroy(_tempDialog);
 		MainManager.instance.ActiveDialog = null;
 
 		if (MainManager.instance.PlayerController != null)
@@ -116,23 +118,23 @@ public class Dialog : MonoBehaviour {
 
     public void DisplayNode()
     {
-        boxContents = tempDialog.GetComponentsInChildren<Text>();
-        if(boxContents[0].text != character)
+        _boxContents = _tempDialog.GetComponentsInChildren<Text>();
+        if(_boxContents[0].text != character)
         {
-            boxContents[0].text = character;
+            _boxContents[0].text = character;
         }
-        boxContents[1].text = currentNode.getText();
-        if (currentNode.options.Length > 0)
+        _boxContents[1].text = _currentNode.getText();
+        if (_currentNode.options.Length > 0)
         {
-            for (int i = 0; i < currentNode.options.Length; ++i)
+            for (int i = 0; i < _currentNode.options.Length; ++i)
             {
-                tempOption = Instantiate(optionButton, new Vector3(65 + 115 * i, 40, 0), Quaternion.identity) as GameObject;
-                tempOption.GetComponentInChildren<Text>().text = currentNode.options[i].getText();
-                tempOption.transform.SetParent(tempDialog.transform);
-                tempOption.name = "Option" + (i + 1);
-                Button b = tempOption.GetComponent<Button>();
+                _tempOption = Instantiate(_optionButton, new Vector3(65 + 115 * i, 40, 0), Quaternion.identity) as GameObject;
+                _tempOption.GetComponentInChildren<Text>().text = _currentNode.options[i].getText();
+                _tempOption.transform.SetParent(_tempDialog.transform);
+                _tempOption.name = "Option" + (i + 1);
+                Button b = _tempOption.GetComponent<Button>();
                 int targetIndex = i;
-                b.onClick.AddListener(() => setTargetNode(currentNode.options[targetIndex].targetNode));
+                b.onClick.AddListener(() => setTargetNode(_currentNode.options[targetIndex].targetNode));
             }
             ClickManager.instance.CanClick = false;
         }
@@ -141,18 +143,18 @@ public class Dialog : MonoBehaviour {
 
     public void setTargetNode(Node targetNode)
     {
-        currentNode.nextNode = targetNode;
+        _currentNode.nextNode = targetNode;
 		ClickManager.instance.CanClick = true;
         advanceDialog();
     }
 
     public Condition EvaluateConditions()
     {
-        for (int i = 0; i < currentNode.conditions.Length; ++i)
+        for (int i = 0; i < _currentNode.conditions.Length; ++i)
         {
-            if (currentNode.conditions[i].isTrue())
+            if (_currentNode.conditions[i].isTrue())
             {
-                return currentNode.conditions[i];
+                return _currentNode.conditions[i];
             }
         }
         return null;
@@ -160,7 +162,7 @@ public class Dialog : MonoBehaviour {
 	
 	public void AssignClues()
 	{
-		foreach (Node node in dialogNodes)
+		foreach (Node node in _dialogNodes)
 		{
 			// assigning giveClue clues
 			if (node.giveClue != null)

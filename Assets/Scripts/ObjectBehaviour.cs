@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
@@ -18,6 +20,9 @@ public class ObjectBehaviour : MonoBehaviour {
 	}
 	public ObjectType Type;
 
+	public string[] Actions;
+	public Node[] ActionModifiers;
+
 	private Vector3 _originalSize;
 	private Color _orginalColor;
 	private BoxCollider2D _objectCollider;
@@ -25,6 +30,8 @@ public class ObjectBehaviour : MonoBehaviour {
 	private Vector3 _targetPosition;
 	private Vector3 _direction = Vector3.zero;
 	private SpriteRenderer _sprite;
+	private Button[] _actionButtons;
+	private bool _isInteractable;
 
 	[MenuItem("GameObject/FishGame/Object", false, 7)]
 	static void CreateCustomGameObject(MenuCommand menuCommand)
@@ -44,13 +51,44 @@ public class ObjectBehaviour : MonoBehaviour {
 		_orginalColor = _sprite ? GetComponent<SpriteRenderer>().color : Color.white;
 		_objectCollider = GetComponent<BoxCollider2D>();
 		_objectCollider.enabled = FindObjectOfType<PlayerController>() ? false : true;
-		
 	}
 
-	void Start(){
-		
+	void Start()
+	{
+		if(Actions != null)
+		{
+			_actionButtons = new Button[Actions.Length];
+
+			for (int i = 0; i < Actions.Length; i++)
+			{
+				Button newActionButton = Instantiate(InGamePanel.instance.ObjectActionButton);
+				newActionButton.transform.SetParent(UIManager.instance.InGamePanel.transform, false);
+				newActionButton.transform.position = Camera.main.WorldToScreenPoint(transform.position);
+				newActionButton.GetComponentInChildren<Text>().text = Actions[i];
+
+				Node firstNode = ActionModifiers[i];
+
+				newActionButton.onClick.AddListener
+				(
+					() => { DoStartDialog(firstNode); }
+				);
+
+				_actionButtons[i] = newActionButton;
+
+				newActionButton.gameObject.SetActive(false);
+			}
+		}
+	}
+	
+	public void DoStartDialog(Node firstNode)
+	{
+		if(MainManager.instance.ActiveDialog == null)
+		{
+			dialog.initiateDialog(firstNode);
+		}
 	}
 
+	
 	void Update () {
 		if(_target == null && MainManager.instance.PlayerController != null)
 		{
@@ -80,11 +118,31 @@ public class ObjectBehaviour : MonoBehaviour {
 					{
 						transform.localScale = new Vector3(bigger, bigger, 0);
 						_objectCollider.enabled = true;
+
+						if(!_isInteractable)
+						{
+							for (int i = 0; i < _actionButtons.Length; i++)
+							{
+								_actionButtons[i].gameObject.SetActive(true);
+							}
+
+							_isInteractable = true;
+						}
 					}
 					else if(_target)
 					{
 						transform.localScale = _originalSize;
 						_objectCollider.enabled = false;
+
+						if (_isInteractable)
+						{
+							for (int i = 0; i < _actionButtons.Length; i++)
+							{
+								_actionButtons[i].gameObject.SetActive(false);
+							}
+
+							_isInteractable = false;
+						}
 					}
 					break;
 				case ObjectType.NarrativeTrigger:
@@ -94,6 +152,17 @@ public class ObjectBehaviour : MonoBehaviour {
 						this.enabled = false;
 					}
 					break;
+			}
+		}
+
+		if(_actionButtons != null)
+		{
+			for (int i = 0; i < _actionButtons.Length; i++)
+			{
+				if (_actionButtons[i].gameObject.activeSelf)
+				{
+					_actionButtons[i].transform.position = Camera.main.WorldToScreenPoint(transform.position) + new Vector3(0, -40 - (25 * i), 0);
+				}
 			}
 		}
 	}
