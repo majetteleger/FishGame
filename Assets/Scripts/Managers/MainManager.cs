@@ -7,6 +7,7 @@ public class MainManager : MonoBehaviour {
 	public static MainManager instance = null;
 
 	public ClueManager ClueManager;
+	public ItemManager ItemManager;
 	public ClickManager ClickManager;
 	public UIManager UIManager;
 	public PlayerController PlayerPrefab;
@@ -40,6 +41,11 @@ public class MainManager : MonoBehaviour {
         if(FindObjectOfType<ClueManager>() == null)
 		{
 			Instantiate(ClueManager);
+		}
+
+		if (FindObjectOfType<ItemManager>() == null)
+		{
+			Instantiate(ItemManager);
 		}
 
 		if (FindObjectOfType<ClickManager>() == null)

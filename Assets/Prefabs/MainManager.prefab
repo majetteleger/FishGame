@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClueManager: {fileID: 11438566, guid: 1769017f2281a594192041a88f86ef17, type: 2}
+  ItemManager: {fileID: 11455322, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
   ClickManager: {fileID: 11403514, guid: 30f5c3ca52dadf740bf0553ba2ed1ffd, type: 2}
   UIManager: {fileID: 11426002, guid: 2e18b1e1feb50254181a4a2a3ef55832, type: 2}
   PlayerPrefab: {fileID: 11430876, guid: 20f0b90a59a560a4da26af0ee51adaf2, type: 2}

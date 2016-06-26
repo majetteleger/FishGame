@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour {
 
 	public InGamePanel InGamePanel;
 	public JournalPanel JournalPanel;
+	public InventoryPanel InventoryPanel;
 	public StartPanel StartPanel;
 	public PausePanel PausePanel;
 
 	public InGamePanel InGamePanelPrefab;
 	public JournalPanel JournalPanelPrefab;
+	public InventoryPanel InventoryPanelPrefab;
 	public StartPanel StartPanelPrefab;
 	public PausePanel PausePanelPrefab;
 
@@ -67,6 +69,21 @@ public class UIManager : MonoBehaviour {
 				if(clue.State)
 				{
 					JournalPanel.instance.DisplayClue(clue);
+				}
+			}
+		}
+
+		if (!FindObjectOfType<InventoryPanel>())
+		{
+			InventoryPanel = Instantiate(InventoryPanelPrefab);
+			InventoryPanel.transform.SetParent(_mainCanvas.transform, false);
+			InventoryPanel.gameObject.SetActive(false);
+
+			foreach (Item item in ItemManager.instance.Items)
+			{
+				if (item.IsCollected)
+				{
+					InventoryPanel.instance.DisplayItem(item);
 				}
 			}
 		}

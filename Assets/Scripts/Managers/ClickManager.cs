@@ -46,10 +46,10 @@ public class ClickManager : MonoBehaviour {
 						SceneManager.LoadScene(objectData.levelToLoad);
 					}
 					
-					if (objectData.dialog != null)
-					{
-						objectData.dialog.initiateDialog ();
-					}
+					//if (objectData.dialog != null)
+					//{
+					//	objectData.dialog.initiateDialog ();
+					//}
 				} 
 			}
 			else if(!_canClick)

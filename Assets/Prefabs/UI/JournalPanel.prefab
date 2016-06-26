@@ -226,7 +226,7 @@ MonoBehaviour:
   ClueDescription: {fileID: 121850}
   DescriptionTitle: {fileID: 11433090}
   DescriptionText: {fileID: 11427478}
-  ClueItem: {fileID: 11464020, guid: 4343b145b9c6aef45ac64578b6d8abff, type: 2}
+  ClueVignettePrefab: {fileID: 11449220, guid: 14dee1c5e08cba64a90d9d26749034c6, type: 2}
 --- !u!114 &11427478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -733,6 +733,11 @@ Prefab:
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ClueVignettePrefab
+      value: 
+      objectReference: {fileID: 11449220, guid: 14dee1c5e08cba64a90d9d26749034c6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136442}

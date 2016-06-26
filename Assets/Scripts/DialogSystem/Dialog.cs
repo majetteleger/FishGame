@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Dialog : MonoBehaviour {
 
 	public string character;
 	
-	private  Node _currentNode;
+	private Node _currentNode;
 	private GameObject _dialogBox, _tempDialog, _optionButton, _tempOption;
 	private Text[] _boxContents;
 	private Node[] _dialogNodes;
@@ -26,7 +27,7 @@ public class Dialog : MonoBehaviour {
 
     void Start(){
 		_dialogNodes = GetComponentsInChildren<Node> ();
-		AssignClues();
+		AssignCluesAndItems();
 
 		_dialogBox = Resources.Load ("DialogBox") as GameObject;
 		_optionButton = Resources.Load ("OptionButton") as GameObject;
@@ -46,7 +47,15 @@ public class Dialog : MonoBehaviour {
 		}
 		
 		_currentNode = firstNode;
-        
+
+		if (_currentNode.conditions.Length > 0)
+		{
+			if (EvaluateConditions() != null)
+			{
+				_currentNode = EvaluateConditions().altNode;
+			}
+		}
+
 		_tempDialog = Instantiate (_dialogBox) as GameObject;
 		_tempDialog.name = "DialogBox";
 
@@ -56,10 +65,15 @@ public class Dialog : MonoBehaviour {
 		{
 			ClueManager.instance.GiveClue(_currentNode.giveClue);
 		}
+
+		if (_currentNode.giveItem != null)
+		{
+			ItemManager.instance.CollectItem(_currentNode.giveItem);
+		}
 	}
 
 	public void advanceDialog(){
-
+		
         if(_currentNode.options.Length > 0)
         {
             Button[] tmp = FindObjectsOfType<Button>();
@@ -74,7 +88,6 @@ public class Dialog : MonoBehaviour {
         
         if (_currentNode.nextNode != null)
         {
-            
             _currentNode = _currentNode.nextNode;
 
             if (_currentNode.conditions.Length > 0)
@@ -90,14 +103,25 @@ public class Dialog : MonoBehaviour {
                 _currentNode = _currentNode.nextNode;
             }
 
-            DisplayNode();
+			if (_currentNode.LoadLevel != null && _currentNode.LoadLevel != "")
+			{
+				endDialog();
+				SceneManager.LoadScene(_currentNode.LoadLevel);
+			}
+
+			DisplayNode();
 
             if (_currentNode.giveClue != null)
             {
                 ClueManager.instance.GiveClue(_currentNode.giveClue);
             }
 
-        }
+			if (_currentNode.giveItem != null)
+			{
+				ItemManager.instance.CollectItem(_currentNode.giveItem);
+			}
+
+		}
         else
         {
             endDialog();
@@ -160,7 +184,7 @@ public class Dialog : MonoBehaviour {
         return null;
     }
 	
-	public void AssignClues()
+	public void AssignCluesAndItems()
 	{
 		foreach (Node node in _dialogNodes)
 		{
@@ -176,8 +200,20 @@ public class Dialog : MonoBehaviour {
 				}
 			}
 
-			// assigning conditions clues
-			if(node.conditions.Length > 0)
+			// assigning giveItem items
+			if (node.giveItem != null)
+			{
+				foreach (Item item in ItemManager.instance.Items)
+				{
+					if (node.giveItem.name == item.name)
+					{
+						node.giveItem = item;
+					}
+				}
+			}
+
+			// assigning conditions clues and items
+			if (node.conditions.Length > 0)
 			{
 				foreach(Condition condition in node.conditions)
 				{
@@ -188,6 +224,17 @@ public class Dialog : MonoBehaviour {
 							if (condition.Clues[i].name == clue.name)
 							{
 								condition.Clues[i] = clue;
+							}
+						}
+					}
+
+					for (int i = 0; i < condition.Items.Length; i++)
+					{
+						foreach (Item item in ItemManager.instance.Items)
+						{
+							if (condition.Items[i].name == item.name)
+							{
+								condition.Items[i] = item;
 							}
 						}
 					}

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ClueItem: MonoBehaviour {
+public class ClueVignette: MonoBehaviour {
 
 	public Text ClueName;
 	public Image ClueType;

@@ -7,6 +7,7 @@ using UnityEditor;
 public class Condition : MonoBehaviour {
 
 	public Clue[] Clues;
+	public Item[] Items;
 	public Node altNode;
 
     [MenuItem("GameObject/FishGame/Dialog System/Condition", false, 10)]
@@ -26,7 +27,14 @@ public class Condition : MonoBehaviour {
 			if(clue.State == false){
 				return false;
 			}
-		} 
+		}
+		foreach (Item item in Items)
+		{
+			if (item.IsCollected == false)
+			{
+				return false;
+			}
+		}
 		return true;
 	}
 

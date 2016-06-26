@@ -10,7 +10,7 @@ public class JournalPanel : MonoBehaviour {
 	public GameObject ClueDescription;
 	public Text DescriptionTitle;
 	public Text DescriptionText;
-	public ClueItem ClueItem;
+	public ClueVignette ClueVignettePrefab;
 
 	void Awake()
 	{
@@ -46,59 +46,54 @@ public class JournalPanel : MonoBehaviour {
 
 	public void DisplayClue(Clue clue)
 	{
-		ClueItem clueItem = Instantiate(ClueItem, Vector3.zero, Quaternion.identity) as ClueItem;
-		clueItem.transform.SetParent(CluesContainer.transform, false);
-		clueItem.transform.localPosition = new Vector3(0, -60 - (40 * clue.Position), 0);
+		ClueVignette clueVignette = Instantiate(ClueVignettePrefab) as ClueVignette;
+		clueVignette.transform.SetParent(CluesContainer.transform, false);
+		clueVignette.transform.localPosition = new Vector3(0, -60 - (40 * clue.Position), 0);
 
-		clueItem.ClueName.text = clue.name;
+		clueVignette.ClueName.text = clue.Name;
 		switch (clue.clueLevel)
 		{
 			case Clue.ClueLevel.firstLvl:
-				clueItem.ClueType.color = Color.red;
+				clueVignette.ClueType.color = Color.red;
 				break;
 			case Clue.ClueLevel.secondLvl:
-				clueItem.ClueType.color = Color.yellow;
+				clueVignette.ClueType.color = Color.yellow;
 				break;
 			case Clue.ClueLevel.thirdLvl:
-				clueItem.ClueType.color = Color.green;
+				clueVignette.ClueType.color = Color.green;
 				break;
 		}
 
-		clueItem.name = clue.name;
-		clueItem.ClueRef = clue;
+		clueVignette.name = clue.Name;
+		clueVignette.ClueRef = clue;
 
-		clueItem.NewLabel.gameObject.SetActive(clue.IsNew);
+		clueVignette.NewLabel.gameObject.SetActive(clue.IsNew);
 
-		Button b = clueItem.DisplayDescription;
+		Button b = clueVignette.DisplayDescription;
 		b.onClick.AddListener
 		(
-			() => { DisplayDescription(clueItem); }
+			() => { DisplayDescription(clueVignette); }
 		);
 	}
 
-	void DisplayDescription(ClueItem clueItem)
+	private void DisplayDescription(ClueVignette clueVignette)
 	{
 		ClueDescription.SetActive(true);
-		DescriptionTitle.text = clueItem.ClueRef.Name;
-		DescriptionText.text = clueItem.ClueRef.Description;
+		DescriptionTitle.text = clueVignette.ClueRef.Name;
+		DescriptionText.text = clueVignette.ClueRef.Description;
 
-		if (clueItem.NewLabel.gameObject.activeSelf)
+		if (clueVignette.NewLabel.gameObject.activeSelf)
 		{
-			clueItem.NewLabel.gameObject.SetActive(false);
+			clueVignette.NewLabel.gameObject.SetActive(false);
 		}
-		
-		clueItem.ClueRef.IsNew = false;
-	}
 
-	public void Testing()
-	{
-		Debug.Log(0);
+		clueVignette.ClueRef.IsNew = false;
 	}
-
+	
 	private void RemoveNewLabels()
 	{
-		ClueItem[] tempClueItems = CluesContainer.GetComponentsInChildren<ClueItem>(true);
-		foreach (ClueItem tempClueItem in tempClueItems)
+		ClueVignette[] tempClueItems = CluesContainer.GetComponentsInChildren<ClueVignette>(true);
+		foreach (ClueVignette tempClueItem in tempClueItems)
 		{
 			if (tempClueItem.NewLabel.gameObject.activeSelf)
 			{

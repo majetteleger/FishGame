@@ -7,6 +7,7 @@ public class InGamePanel : MonoBehaviour {
 	public static InGamePanel instance = null;
 
 	public Image NewClueLabel;
+	public Image NewItemLabel;
 	public Button ObjectActionButton;
 
 	void Awake()
@@ -25,5 +26,13 @@ public class InGamePanel : MonoBehaviour {
 		if (NewClueLabel.gameObject.activeSelf)
 			NewClueLabel.gameObject.SetActive(false);
 	}
-	
+
+	public void ToggleInventory()
+	{
+		GameObject InventoryPanel = UIManager.instance.InventoryPanel.gameObject;
+		InventoryPanel.SetActive(!InventoryPanel.activeSelf);
+		if (NewItemLabel.gameObject.activeSelf)
+			NewItemLabel.gameObject.SetActive(false);
+	}
+
 }

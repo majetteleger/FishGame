@@ -10,6 +10,8 @@ public class Node : MonoBehaviour {
 	public Option[] options;
 	public bool permanentChoice;
 	public Clue giveClue;
+	public Item giveItem;
+	public string LoadLevel;
 	public Node nextNode;
 
 	string text;
@@ -30,10 +32,6 @@ public class Node : MonoBehaviour {
 		text = GetComponent<Text> ().text;
 	}
 	
-	void Update () {
-	
-	}
-
 	public string getText(){
 		return text;
 	}

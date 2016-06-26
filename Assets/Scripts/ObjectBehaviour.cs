@@ -26,6 +26,7 @@ public class ObjectBehaviour : MonoBehaviour {
 	private Vector3 _originalSize;
 	private Color _orginalColor;
 	private BoxCollider2D _objectCollider;
+	private Vector2 _originalColliderSize, _originalColliderOffset;
 	private Transform _target;
 	private Vector3 _targetPosition;
 	private Vector3 _direction = Vector3.zero;
@@ -51,6 +52,8 @@ public class ObjectBehaviour : MonoBehaviour {
 		_orginalColor = _sprite ? GetComponent<SpriteRenderer>().color : Color.white;
 		_objectCollider = GetComponent<BoxCollider2D>();
 		_objectCollider.enabled = FindObjectOfType<PlayerController>() ? false : true;
+		_originalColliderSize = _objectCollider.size;
+		_originalColliderOffset = _objectCollider.offset;
 	}
 
 	void Start()
@@ -168,16 +171,43 @@ public class ObjectBehaviour : MonoBehaviour {
 	}
 
 	void OnMouseEnter() {
-		if(_sprite)
+		if(_sprite.sprite != null && _target == null)
 		{
 			_sprite.color = Color.red;
+
+			if (!_isInteractable && _actionButtons != null)
+			{
+				for (int i = 0; i < _actionButtons.Length; i++)
+				{
+					_actionButtons[i].gameObject.SetActive(true);
+				}
+
+				_isInteractable = true;
+
+				_objectCollider.offset = new Vector2(0, -(_objectCollider.size.y / 2) * 3);
+				_objectCollider.size = new Vector2(_objectCollider.size.x, _objectCollider.size.y * 4);
+				
+			}
 		}
 	}
 
 	void OnMouseExit() {
-		if (_sprite)
+		if (_sprite.sprite != null && _target == null)
 		{
 			_sprite.color = _orginalColor;
+
+			if (_isInteractable && _actionButtons != null)
+			{
+				for (int i = 0; i < _actionButtons.Length; i++)
+				{
+					_actionButtons[i].gameObject.SetActive(false);
+				}
+
+				_isInteractable = false;
+
+				_objectCollider.offset = _originalColliderOffset;
+				_objectCollider.size = _originalColliderSize;
+			}
 		}
 	}
 
