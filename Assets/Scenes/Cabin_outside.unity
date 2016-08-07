@@ -97,7 +97,7 @@ GameObject:
   - 222: {fileID: 112366224}
   - 114: {fileID: 112366223}
   m_Layer: 0
-  m_Name: Node02
+  m_Name: Node03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2110402054}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -177,6 +177,102 @@ MonoBehaviour:
   giveItem: {fileID: 0}
   LoadLevel: Cabin_inside
   nextNode: {fileID: 0}
+  singleRead: 0
+  altNode: {fileID: 0}
+--- !u!1 &298459597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 298459598}
+  - 114: {fileID: 298459601}
+  - 222: {fileID: 298459600}
+  - 114: {fileID: 298459599}
+  m_Layer: 0
+  m_Name: Node01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &298459598
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298459597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2110402054}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &298459599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298459597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Sometimes it gets so cold this door freezes shut.
+--- !u!222 &298459600
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298459597}
+--- !u!114 &298459601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298459597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions: []
+  options: []
+  permanentChoice: 0
+  giveClue: {fileID: 0}
+  giveItem: {fileID: 0}
+  LoadLevel: 
+  nextNode: {fileID: 1825086624}
+  singleRead: 0
+  altNode: {fileID: 0}
 --- !u!1 &351872772
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +330,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
 --- !u!1 &468607408
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &527445554
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +486,50 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &545417294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 545417295}
+  - 114: {fileID: 545417296}
+  m_Layer: 0
+  m_Name: Condition01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &545417295
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545417294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1097664326}
+  m_RootOrder: 0
+--- !u!114 &545417296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545417294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b405c5a388f162e47b74ebb1a872541d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clues: []
+  Items:
+  - {fileID: 11496840, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
+  Nodes: []
+  altNode: {fileID: 298459601}
 --- !u!1 &674743849
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1097664326}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &674743851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +572,8 @@ MonoBehaviour:
   Clues: []
   Items:
   - {fileID: 11496840, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
+  Nodes:
+  - {fileID: 1097664329}
   altNode: {fileID: 1825086624}
 --- !u!1001 &954659779
 Prefab:
@@ -504,7 +646,7 @@ Transform:
   - {fileID: 1469980917}
   - {fileID: 1834433402}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1097664325
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +675,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 545417295}
   - {fileID: 674743850}
   m_Father: {fileID: 2110402054}
   m_RootOrder: 0
@@ -593,12 +736,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 674743851}
+  - {fileID: 545417296}
   options: []
   permanentChoice: 0
   giveClue: {fileID: 0}
   giveItem: {fileID: 0}
   LoadLevel: 
   nextNode: {fileID: 0}
+  singleRead: 0
+  altNode: {fileID: 0}
 --- !u!1 &1333443341
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +773,7 @@ Transform:
   - {fileID: 2107783018}
   - {fileID: 2110402054}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1394476469
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +1044,8 @@ MonoBehaviour:
   giveItem: {fileID: 0}
   LoadLevel: 
   nextNode: {fileID: 0}
+  singleRead: 0
+  altNode: {fileID: 0}
 --- !u!1 &1825086620
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +1058,7 @@ GameObject:
   - 222: {fileID: 1825086623}
   - 114: {fileID: 1825086622}
   m_Layer: 0
-  m_Name: Node01
+  m_Name: Node02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,7 +1075,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2110402054}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -990,6 +1138,8 @@ MonoBehaviour:
   giveItem: {fileID: 0}
   LoadLevel: 
   nextNode: {fileID: 112366225}
+  singleRead: 1
+  altNode: {fileID: 112366225}
 --- !u!1 &1834433401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1320,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1268,6 +1418,8 @@ MonoBehaviour:
   giveItem: {fileID: 11496840, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
   LoadLevel: 
   nextNode: {fileID: 0}
+  singleRead: 0
+  altNode: {fileID: 0}
 --- !u!1 &2107783017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1430,7 @@ GameObject:
   - 4: {fileID: 2107783018}
   - 114: {fileID: 2107783019}
   m_Layer: 0
-  m_Name: Dialog1
+  m_Name: IcePick(Cabin_outside)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1309,7 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854519aa1eae39e4d994f22079b5b558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: Ice Pick
+  character: IcePick
 --- !u!1 &2110402053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1472,7 @@ GameObject:
   - 4: {fileID: 2110402054}
   - 114: {fileID: 2110402055}
   m_Layer: 0
-  m_Name: Dialog2
+  m_Name: Door(Cabin_outside)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,6 +1489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1097664326}
+  - {fileID: 298459598}
   - {fileID: 1825086621}
   - {fileID: 112366222}
   m_Father: {fileID: 1333443342}
