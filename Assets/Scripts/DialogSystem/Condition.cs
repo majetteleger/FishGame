@@ -8,6 +8,7 @@ public class Condition : MonoBehaviour {
 
 	public Clue[] Clues;
 	public Item[] Items;
+	public Node[] Nodes;
 	public Node altNode;
 
     [MenuItem("GameObject/FishGame/Dialog System/Condition", false, 10)]
@@ -31,6 +32,13 @@ public class Condition : MonoBehaviour {
 		foreach (Item item in Items)
 		{
 			if (item.IsCollected == false)
+			{
+				return false;
+			}
+		}
+		foreach (Node node in Nodes)
+		{
+			if (!node.HasBeenRead)
 			{
 				return false;
 			}

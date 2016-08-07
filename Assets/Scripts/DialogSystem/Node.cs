@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
+[System.Serializable]
 public class Node : MonoBehaviour {
 
 	public Condition[] conditions;
@@ -13,10 +14,24 @@ public class Node : MonoBehaviour {
 	public Item giveItem;
 	public string LoadLevel;
 	public Node nextNode;
+	public bool singleRead;
+	public Node altNode;
 
-	string text;
+	private string _text;
 
-    [MenuItem("GameObject/FishGame/Dialog System/Node", false, 8)]
+	public bool HasBeenRead {
+		get
+		{
+			return MainManager.instance.ActiveDialog.ReadNodes.Contains(Id);
+		}
+	}
+
+	public int Id
+	{
+		get	{ return transform.GetSiblingIndex(); }
+	}
+	
+	[MenuItem("GameObject/FishGame/Dialog System/Node", false, 8)]
     static void CreateCustomGameObject(MenuCommand menuCommand)
     {
         GameObject newNode = new GameObject("Node");
@@ -29,11 +44,11 @@ public class Node : MonoBehaviour {
     }
     
     void Start () {
-		text = GetComponent<Text> ().text;
+		_text = GetComponent<Text> ().text;
 	}
 	
 	public string getText(){
-		return text;
+		return _text;
 	}
 
 }

@@ -35,4 +35,9 @@ public class InGamePanel : MonoBehaviour {
 			NewItemLabel.gameObject.SetActive(false);
 	}
 
+	public void ResetPlayerPrefs()
+	{
+		PlayerPrefs.DeleteAll();
+	}
+
 }

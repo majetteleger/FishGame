@@ -1,80 +1,80 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
+[System.Serializable]
 public class Dialog : MonoBehaviour {
 
 	public string character;
-	
+
 	private Node _currentNode;
 	private GameObject _dialogBox, _tempDialog, _optionButton, _tempOption;
 	private Text[] _boxContents;
 	private Node[] _dialogNodes;
+	private Node _firstNode;
 
-    [MenuItem("GameObject/FishGame/Dialog System/Dialog", false, 7)]
-    static void CreateCustomGameObject(MenuCommand menuCommand)
-    {
-        GameObject newDialog = new GameObject("Dialog");
-        GameObjectUtility.SetParentAndAlign(newDialog, menuCommand.context as GameObject);
-        Undo.RegisterCreatedObjectUndo(newDialog, "Create " + newDialog.name);
-        Selection.activeObject = newDialog;
-        newDialog.AddComponent<Dialog>();
-        newDialog.name += newDialog.transform.parent.childCount;
-    }
+	public List<int> ReadNodes
+	{
+		get
+		{
+			if (!PlayerPrefs.HasKey(character + "ReadNodes") || PlayerPrefs.GetString(character + "ReadNodes") == "")
+			{
+				PlayerPrefs.SetString(character + "ReadNodes", "");
+				return new List<int>();
+			}
 
-    void Start(){
-		_dialogNodes = GetComponentsInChildren<Node> ();
+			string readNodesString = PlayerPrefs.GetString(character + "ReadNodes");
+			string[] readNodesStringArr = readNodesString.Remove(readNodesString.Length - 1).Split((new char[] { ',' }));
+			int[] readNodesIntArr = Array.ConvertAll<string, int>(readNodesStringArr, int.Parse);
+			List<int> readNodesList = readNodesIntArr.ToList();
+			return readNodesList;
+		}
+	}
+
+	[MenuItem("GameObject/FishGame/Dialog System/Dialog", false, 7)]
+	static void CreateCustomGameObject(MenuCommand menuCommand)
+	{
+		GameObject newDialog = new GameObject("Dialog");
+		GameObjectUtility.SetParentAndAlign(newDialog, menuCommand.context as GameObject);
+		Undo.RegisterCreatedObjectUndo(newDialog, "Create " + newDialog.name);
+		Selection.activeObject = newDialog;
+		newDialog.AddComponent<Dialog>();
+		newDialog.name += newDialog.transform.parent.childCount;
+	}
+
+	void Start() {
+		_dialogNodes = GetComponentsInChildren<Node>();
 		AssignCluesAndItems();
 
-		_dialogBox = Resources.Load ("DialogBox") as GameObject;
-		_optionButton = Resources.Load ("OptionButton") as GameObject;
-
+		_dialogBox = Resources.Load("DialogBox") as GameObject;
+		_optionButton = Resources.Load("OptionButton") as GameObject;
 	}
-    
+	
 	public void initiateDialog(Node firstNode = null){
+		
 		MainManager.instance.ActiveDialog = this;
-		if(firstNode == null)
-		{
-			firstNode = transform.GetChild(0).GetComponent<Node>();
-		}
+		
+		_firstNode = firstNode == null ? transform.GetChild(0).GetComponent<Node>() : firstNode;
 
 		if (MainManager.instance.PlayerController != null)
 		{
 			MainManager.instance.PlayerController.CanMove = false;
 		}
-		
-		_currentNode = firstNode;
-
-		if (_currentNode.conditions.Length > 0)
-		{
-			if (EvaluateConditions() != null)
-			{
-				_currentNode = EvaluateConditions().altNode;
-			}
-		}
 
 		_tempDialog = Instantiate (_dialogBox) as GameObject;
 		_tempDialog.name = "DialogBox";
 
-        DisplayNode();
-
-		if (_currentNode.giveClue != null)
-		{
-			ClueManager.instance.GiveClue(_currentNode.giveClue);
-		}
-
-		if (_currentNode.giveItem != null)
-		{
-			ItemManager.instance.CollectItem(_currentNode.giveItem);
-		}
+		advanceDialog();
 	}
 
-	public void advanceDialog(){
+	public bool advanceDialog(){
 		
-        if(_currentNode.options.Length > 0)
+        if(_currentNode != null && _currentNode.options.Length > 0)
         {
             Button[] tmp = FindObjectsOfType<Button>();
             foreach (Button obj in tmp)
@@ -85,59 +85,66 @@ public class Dialog : MonoBehaviour {
                 }
             }
         }
-        
-        if (_currentNode.nextNode != null)
+
+		if (_currentNode == null)
+		{
+			_currentNode = _firstNode;
+		}
+		else if (_currentNode.nextNode != null)
         {
             _currentNode = _currentNode.nextNode;
-
-            if (_currentNode.conditions.Length > 0)
-            {
-                if(EvaluateConditions() != null)
-                {
-                    _currentNode = EvaluateConditions().altNode;
-                }
-            }
-
-            if(_currentNode.permanentChoice && _currentNode.nextNode != null)
-            {
-                _currentNode = _currentNode.nextNode;
-            }
-
-			if (_currentNode.LoadLevel != null && _currentNode.LoadLevel != "")
-			{
-				endDialog();
-				SceneManager.LoadScene(_currentNode.LoadLevel);
-			}
-
-			DisplayNode();
-
-            if (_currentNode.giveClue != null)
-            {
-                ClueManager.instance.GiveClue(_currentNode.giveClue);
-            }
-
-			if (_currentNode.giveItem != null)
-			{
-				ItemManager.instance.CollectItem(_currentNode.giveItem);
-			}
-
 		}
         else
         {
-            endDialog();
+			return endDialog();
         }
 
+		if (_currentNode.conditions.Length > 0)
+		{
+			if (EvaluateConditions() != null)
+			{
+				_currentNode = EvaluateConditions().altNode;
+			}
+		}
+
+		if (_currentNode.permanentChoice && _currentNode.nextNode != null)
+		{
+			_currentNode = _currentNode.nextNode;
+		}
+
+		if (_currentNode.singleRead && _currentNode.HasBeenRead && _currentNode.altNode != null)
+		{
+			_currentNode = _currentNode.altNode;
+		}
+
+		if (_currentNode.LoadLevel != null && _currentNode.LoadLevel != "")
+		{
+			SceneManager.LoadScene(_currentNode.LoadLevel);
+			return endDialog();
+		}
+		
+		DisplayNode();
+		MarkNodeAsRead(_currentNode);
+
+		if (_currentNode.giveClue != null) ClueManager.instance.GiveClue(_currentNode.giveClue);
+
+		if (_currentNode.giveItem != null) ItemManager.instance.CollectItem(_currentNode.giveItem);
+		
+		return true;
 	}
 
-    public void endDialog()
+    public bool endDialog()
     {
         Destroy(_tempDialog);
 		MainManager.instance.ActiveDialog = null;
+		_currentNode = null;
 
 		if (MainManager.instance.PlayerController != null)
 		{
 			MainManager.instance.PlayerController.CanMove = true;
 		}
+		
+		return true;
 	}
 
     public void DisplayNode()
@@ -183,6 +190,14 @@ public class Dialog : MonoBehaviour {
         }
         return null;
     }
+
+	public void MarkNodeAsRead(Node node)
+	{
+		if (!ReadNodes.Contains(node.Id))
+		{
+			PlayerPrefs.SetString(character + "ReadNodes", PlayerPrefs.GetString(character + "ReadNodes") + node.Id.ToString() + ",");
+		}
+	}
 	
 	public void AssignCluesAndItems()
 	{

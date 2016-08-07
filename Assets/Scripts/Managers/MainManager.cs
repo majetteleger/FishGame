@@ -57,7 +57,6 @@ public class MainManager : MonoBehaviour {
 		{
 			Instantiate(UIManager);
 		}
-
 	}
 
 	void Update()
@@ -72,5 +71,4 @@ public class MainManager : MonoBehaviour {
 		//	_playerController = null;
 		//}
 	}
-    
 }

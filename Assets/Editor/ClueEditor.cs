@@ -4,7 +4,6 @@ using UnityEditor;
 [CustomEditor(typeof(Clue))]
 public class ClueEditor : Editor
 {
-
 	public override void OnInspectorGUI()
 	{
 		Clue clue = target as Clue;
