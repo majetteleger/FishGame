@@ -10,31 +10,16 @@ public class Item : MonoBehaviour {
 	public string Description;
 	public bool DestroyInGameItemOnCollection;
 
-	private static int _itemsFound = 0;
-	public static int ItemsFound
-	{
-		get { return _itemsFound; }
-	}
-
-	private bool _isCollected;
 	public bool IsCollected
 	{
-		get { return _isCollected; }
-		set { _isCollected = value; }
+		get { return ItemManager.instance.CollectedItems.Contains(this); }
 	}
-	
+
 	private bool _isNew;
 	public bool IsNew
 	{
 		get { return _isNew; }
 		set { _isNew = value; }
-	}
-
-	private int _position;
-	public int Position
-	{
-		get { return _position; }
-		set { _position = value; }
 	}
 	
 	[MenuItem("GameObject/FishGame/Item", false, 7)]

@@ -10,6 +10,7 @@ public class MainManager : MonoBehaviour {
 	public ItemManager ItemManager;
 	public ClickManager ClickManager;
 	public UIManager UIManager;
+	public SaveGameManager SaveGameManager;
 	public PlayerController PlayerPrefab;
 
 	private PlayerController _playerController;
@@ -57,6 +58,11 @@ public class MainManager : MonoBehaviour {
 		{
 			Instantiate(UIManager);
 		}
+
+		if (FindObjectOfType<SaveGameManager>() == null)
+		{
+			Instantiate(SaveGameManager);
+		}
 	}
 
 	void Update()
@@ -70,5 +76,13 @@ public class MainManager : MonoBehaviour {
 		//	Debug.Log(1);
 		//	_playerController = null;
 		//}
+	}
+
+	public void OnLevelWasLoaded(int level)
+	{
+		if (this != instance) return;
+
+		SaveGameManager.instance.SaveGame();
+		UIManager.instance.LoadPanels();
 	}
 }

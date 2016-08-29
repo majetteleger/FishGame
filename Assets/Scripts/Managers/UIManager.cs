@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour {
 
     public static UIManager instance = null;
-
-	public InGamePanel InGamePanel;
-	public JournalPanel JournalPanel;
-	public InventoryPanel InventoryPanel;
-	public StartPanel StartPanel;
-	public PausePanel PausePanel;
+	
+	public InGamePanel InGamePanel { get; private set; }
+	public JournalPanel JournalPanel { get; private set; }
+	public InventoryPanel InventoryPanel { get; private set; }
+	public StartPanel StartPanel { get; private set; }
+	public PausePanel PausePanel { get; private set; }
+	public MainMenuPanel MainMenuPanel { get; private set; }
 
 	public InGamePanel InGamePanelPrefab;
 	public JournalPanel JournalPanelPrefab;
 	public InventoryPanel InventoryPanelPrefab;
 	public StartPanel StartPanelPrefab;
 	public PausePanel PausePanelPrefab;
+	public MainMenuPanel MainMenuPanelPrefab;
 
 	private Canvas _mainCanvas;
 
@@ -40,12 +43,7 @@ public class UIManager : MonoBehaviour {
 		LoadPanels();
 	}
 
-	void OnLevelWasLoaded()
-	{
-		LoadPanels();
-	}
-
-	private void LoadPanels()
+	public void LoadPanels()
 	{
 		if(_mainCanvas == null)
 		{
@@ -64,12 +62,9 @@ public class UIManager : MonoBehaviour {
 			JournalPanel.transform.SetParent(_mainCanvas.transform, false);
 			JournalPanel.gameObject.SetActive(false);
 
-			foreach (Clue clue in ClueManager.instance.Clues)
+			foreach (Clue clue in ClueManager.instance.CollectedClues)
 			{
-				if(clue.State)
-				{
-					JournalPanel.instance.DisplayClue(clue);
-				}
+				JournalPanel.instance.DisplayClue(clue);
 			}
 		}
 
@@ -79,12 +74,9 @@ public class UIManager : MonoBehaviour {
 			InventoryPanel.transform.SetParent(_mainCanvas.transform, false);
 			InventoryPanel.gameObject.SetActive(false);
 
-			foreach (Item item in ItemManager.instance.Items)
+			foreach (Item item in ItemManager.instance.CollectedItems)
 			{
-				if (item.IsCollected)
-				{
-					InventoryPanel.instance.DisplayItem(item);
-				}
+				InventoryPanel.instance.DisplayItem(item);
 			}
 		}
 
@@ -100,6 +92,13 @@ public class UIManager : MonoBehaviour {
 			PausePanel = Instantiate(PausePanelPrefab);
 			PausePanel.transform.SetParent(_mainCanvas.transform, false);
 			PausePanel.gameObject.SetActive(false);
+		}
+
+		if (!FindObjectOfType<MainMenuPanel>())
+		{
+			MainMenuPanel = Instantiate(MainMenuPanelPrefab);
+			MainMenuPanel.transform.SetParent(_mainCanvas.transform, false);
+			MainMenuPanel.gameObject.SetActive(EditorSceneManager.GetActiveScene().name == "MainMenu_temp");
 		}
 	}
 

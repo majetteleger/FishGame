@@ -100,6 +100,7 @@ MonoBehaviour:
   Name: DogItem
   Sprite: {fileID: 21300000, guid: a811e01a092419f4eb6f5e9d2b8e804a, type: 3}
   Description: This is a dog that you just collected.
+  DestroyInGameItemOnCollection: 0
 --- !u!114 &11455322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +127,7 @@ MonoBehaviour:
   Name: Ice Pick
   Sprite: {fileID: 21300000, guid: 9db2d44e633827b449ea6bab825c3482, type: 3}
   Description: "A reliable ice\xADpick, good for breaking ice."
+  DestroyInGameItemOnCollection: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

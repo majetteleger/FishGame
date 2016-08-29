@@ -48,7 +48,6 @@ public class JournalPanel : MonoBehaviour {
 	{
 		ClueVignette clueVignette = Instantiate(ClueVignettePrefab) as ClueVignette;
 		clueVignette.transform.SetParent(CluesContainer.transform, false);
-		clueVignette.transform.localPosition = new Vector3(0, -60 - (40 * clue.Position), 0);
 
 		clueVignette.ClueName.text = clue.Name;
 		switch (clue.clueLevel)

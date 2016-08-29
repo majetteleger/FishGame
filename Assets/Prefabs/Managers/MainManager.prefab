@@ -43,6 +43,7 @@ MonoBehaviour:
   ItemManager: {fileID: 11455322, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
   ClickManager: {fileID: 11403514, guid: 30f5c3ca52dadf740bf0553ba2ed1ffd, type: 2}
   UIManager: {fileID: 11426002, guid: 2e18b1e1feb50254181a4a2a3ef55832, type: 2}
+  SaveGameManager: {fileID: 11454692, guid: ab5cfcf3e360a6744901259edbc00072, type: 2}
   PlayerPrefab: {fileID: 11430876, guid: 20f0b90a59a560a4da26af0ee51adaf2, type: 2}
 --- !u!1001 &100100000
 Prefab:
@@ -67,6 +68,11 @@ Prefab:
       propertyPath: MainCanvas
       value: 
       objectReference: {fileID: 22348726, guid: 4467fab52f42a0a49b6451cc5c56865a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: SaveGameManager
+      value: 
+      objectReference: {fileID: 11454692, guid: ab5cfcf3e360a6744901259edbc00072,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

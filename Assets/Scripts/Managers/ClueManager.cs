@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ClueManager : MonoBehaviour {
 
@@ -9,22 +11,35 @@ public class ClueManager : MonoBehaviour {
 
     public Clue[] Clues;
 
-	//private Clue[] _clues;
-
-	//public Clue[] Clues
-	//{
-	//	get { return _clues; }
-	//	set { _clues = value; }
-	//}
-
-	private static int _cluesFound = 0;
-
-	public int CluesFound
+	public List<Clue> CollectedClues
 	{
-		get { return _cluesFound; }
-		set { _cluesFound = value; }
-	}
+		get
+		{
+			if (!PlayerPrefs.HasKey("CollectedClues") || PlayerPrefs.GetString("CollectedClues") == "")
+			{
+				PlayerPrefs.SetString("CollectedClues", "");
+				return new List<Clue>();
+			}
 
+			string collectedCluesString = PlayerPrefs.GetString("CollectedClues");
+			string[] collectedCluesStringArr = collectedCluesString.Remove(collectedCluesString.Length - 1).Split((new char[] { ',' }));
+
+			List<Clue> collectedCluesList = new List<Clue>();
+			foreach(string str in collectedCluesStringArr)
+			{
+				foreach (Clue clue in Clues)
+				{
+					if(str == clue.name)
+					{
+						collectedCluesList.Add(clue);
+					}
+				}
+			}
+
+			return collectedCluesList;
+		}
+	}
+	
 	private void Awake()
 	{
 		if (instance == null)
@@ -41,20 +56,19 @@ public class ClueManager : MonoBehaviour {
 
 	public void GiveClue(Clue clue)
     {
-		if(clue.State == false)
+		if(clue.IsCollected == false)
 		{
-			clue.State = true;
+			PlayerPrefs.SetString("CollectedClues", PlayerPrefs.GetString("CollectedClues") + clue.name + ",");
+
 			clue.IsNew = true;
-			clue.Position = _cluesFound;
 			JournalPanel.instance.DisplayClue(clue);
 			UIManager.instance.InGamePanel.NewClueLabel.gameObject.SetActive(true);
-			_cluesFound++;
 		}
     }
 
     public bool CheckClue(Clue clue)
     {
-        return clue.State;
+        return clue.IsCollected;
     }
 
 }

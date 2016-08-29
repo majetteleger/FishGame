@@ -23,26 +23,40 @@ public class Condition : MonoBehaviour {
     }
 
     public bool isTrue(){
-		foreach (Clue clue in Clues)
+
+		if(Clues != null)
 		{
-			if(clue.State == false){
-				return false;
-			}
-		}
-		foreach (Item item in Items)
-		{
-			if (item.IsCollected == false)
+			foreach (Clue clue in Clues)
 			{
-				return false;
+				if (clue.IsCollected == false)
+				{
+					return false;
+				}
 			}
 		}
-		foreach (Node node in Nodes)
+		
+		if (Items != null)
 		{
-			if (!node.HasBeenRead)
+			foreach (Item item in Items)
 			{
-				return false;
+				if (item.IsCollected == false)
+				{
+					return false;
+				}
 			}
 		}
+		
+		if (Nodes != null)
+		{
+			foreach (Node node in Nodes)
+			{
+				if (!node.HasBeenRead)
+				{
+					return false;
+				}
+			}
+		}
+		
 		return true;
 	}
 
