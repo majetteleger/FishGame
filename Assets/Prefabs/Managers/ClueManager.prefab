@@ -532,7 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: "Ice\xADfishing Hole"
   Description: My supplies ran out weeks ago. I've been fishing to survive.
   clueLevel: 2
@@ -547,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Fishing Pole
   Description: "A solid\xADquality fishing pole."
   clueLevel: 2
@@ -562,7 +560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Old Newspaper Clippings
   Description: "These talk about my grandfather leading an expedition to the\r north
     to investigate strange seismic activity."
@@ -578,7 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Radio
   Description: The only signal it picks up is garbled and unintelligible.
   clueLevel: 2
@@ -593,7 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Lantern
   Description: This thing barely works anymore.
   clueLevel: 2
@@ -608,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Fishing Gear
   Description: My survival has depended on this fishing gear.
   clueLevel: 2
@@ -623,7 +617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Recent Newspaper Clippings
   Description: "These talk about how my grandfather's expedition never\r returned
     from the north."
@@ -639,7 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Magazines
   Description: "Science\xADrelated magazines talking about strange seismic\r activity
     happening up here."
@@ -655,7 +647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Scotch
   Description: "This was here when I arrived. It reminds me of the last time I\r saw
     my father..."
@@ -683,7 +674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: ClueA
   Description: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   clueLevel: 0
@@ -698,7 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: ClueB
   Description: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
   clueLevel: 1
@@ -713,7 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Faded Map
   Description: "An old map with indecipherable notes on it. Hasn't been\r useful."
   clueLevel: 2
@@ -728,7 +716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: 
   Description: 
   clueLevel: 2
@@ -743,7 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Safe
   Description: I haven't been able to open this. I don't know what's inside.
   clueLevel: 1
@@ -758,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: ClueC
   Description: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
   clueLevel: 2
@@ -773,7 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Ice Pick
   Description: "A reliable ice\xADpick, good for breaking ice."
   clueLevel: 1
@@ -788,7 +772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80197c4d47064614a9548f64f49919d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   Name: Bible
   Description: "My father wasn't religious, so this must have belonged to my\r grandfather.
     A lot of pages are missing."
