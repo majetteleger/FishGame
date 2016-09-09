@@ -44,7 +44,6 @@ public class Dialog : MonoBehaviour {
 		Undo.RegisterCreatedObjectUndo(newDialog, "Create " + newDialog.name);
 		Selection.activeObject = newDialog;
 		newDialog.AddComponent<Dialog>();
-		newDialog.name += newDialog.transform.parent.childCount;
 	}
 
 	void Start() {
@@ -74,7 +73,7 @@ public class Dialog : MonoBehaviour {
 
 	public bool advanceDialog(){
 		
-        if(_currentNode != null && _currentNode.options.Length > 0)
+        if(_currentNode != null && _currentNode.Options.Length > 0)
         {
             Button[] tmp = FindObjectsOfType<Button>();
             foreach (Button obj in tmp)
@@ -90,16 +89,16 @@ public class Dialog : MonoBehaviour {
 		{
 			_currentNode = _firstNode;
 		}
-		else if (_currentNode.nextNode != null)
+		else if (_currentNode.NextNode != null)
         {
-            _currentNode = _currentNode.nextNode;
+            _currentNode = _currentNode.NextNode;
 		}
         else
         {
 			return endDialog();
         }
 
-		if (_currentNode.conditions.Length > 0)
+		if (_currentNode.Conditions.Length > 0)
 		{
 			if (EvaluateConditions() != null)
 			{
@@ -107,14 +106,14 @@ public class Dialog : MonoBehaviour {
 			}
 		}
 
-		if (_currentNode.permanentChoice && _currentNode.nextNode != null)
+		if (_currentNode.PermanentChoice && _currentNode.NextNode != null)
 		{
-			_currentNode = _currentNode.nextNode;
+			_currentNode = _currentNode.NextNode;
 		}
 
-		if (_currentNode.singleRead && _currentNode.HasBeenRead && _currentNode.altNode != null)
+		if (_currentNode.SingleRead && _currentNode.HasBeenRead && _currentNode.AltNode != null)
 		{
-			_currentNode = _currentNode.altNode;
+			_currentNode = _currentNode.AltNode;
 		}
 
 		if (_currentNode.LoadLevel != null && _currentNode.LoadLevel != "")
@@ -126,9 +125,9 @@ public class Dialog : MonoBehaviour {
 		DisplayNode();
 		MarkNodeAsRead(_currentNode);
 
-		if (_currentNode.giveClue != null) ClueManager.instance.GiveClue(_currentNode.giveClue);
+		if (_currentNode.GiveClue != null) ClueManager.instance.GiveClue(_currentNode.GiveClue);
 
-		if (_currentNode.giveItem != null) ItemManager.instance.CollectItem(_currentNode.giveItem);
+		if (_currentNode.GiveItem != null) ItemManager.instance.CollectItem(_currentNode.GiveItem);
 		
 		return true;
 	}
@@ -154,18 +153,18 @@ public class Dialog : MonoBehaviour {
         {
             _boxContents[0].text = character;
         }
-        _boxContents[1].text = _currentNode.getText();
-        if (_currentNode.options.Length > 0)
+        _boxContents[1].text = _currentNode.Text;
+        if (_currentNode.Options.Length > 0)
         {
-            for (int i = 0; i < _currentNode.options.Length; ++i)
+            for (int i = 0; i < _currentNode.Options.Length; ++i)
             {
                 _tempOption = Instantiate(_optionButton, new Vector3(65 + 115 * i, 40, 0), Quaternion.identity) as GameObject;
-                _tempOption.GetComponentInChildren<Text>().text = _currentNode.options[i].getText();
+                _tempOption.GetComponentInChildren<Text>().text = _currentNode.Options[i].getText();
                 _tempOption.transform.SetParent(_tempDialog.transform);
                 _tempOption.name = "Option" + (i + 1);
                 Button b = _tempOption.GetComponent<Button>();
                 int targetIndex = i;
-                b.onClick.AddListener(() => setTargetNode(_currentNode.options[targetIndex].targetNode));
+                b.onClick.AddListener(() => setTargetNode(_currentNode.Options[targetIndex].targetNode));
             }
             ClickManager.instance.CanClick = false;
         }
@@ -174,18 +173,18 @@ public class Dialog : MonoBehaviour {
 
     public void setTargetNode(Node targetNode)
     {
-        _currentNode.nextNode = targetNode;
+        _currentNode.NextNode = targetNode;
 		ClickManager.instance.CanClick = true;
         advanceDialog();
     }
 
     public Condition EvaluateConditions()
     {
-        for (int i = 0; i < _currentNode.conditions.Length; ++i)
+        for (int i = 0; i < _currentNode.Conditions.Length; ++i)
         {
-            if (_currentNode.conditions[i].isTrue())
+            if (_currentNode.Conditions[i].isTrue())
             {
-                return _currentNode.conditions[i];
+                return _currentNode.Conditions[i];
             }
         }
         return null;
@@ -204,33 +203,33 @@ public class Dialog : MonoBehaviour {
 		foreach (Node node in _dialogNodes)
 		{
 			// assigning giveClue clues
-			if (node.giveClue != null)
+			if (node.GiveClue != null)
 			{
 				foreach (Clue clue in ClueManager.instance.Clues)
 				{
-					if (node.giveClue.name == clue.name)
+					if (node.GiveClue.name == clue.name)
 					{
-						node.giveClue = clue;
+						node.GiveClue = clue;
 					}
 				}
 			}
 
 			// assigning giveItem items
-			if (node.giveItem != null)
+			if (node.GiveItem != null)
 			{
 				foreach (Item item in ItemManager.instance.Items)
 				{
-					if (node.giveItem.name == item.name)
+					if (node.GiveItem.name == item.name)
 					{
-						node.giveItem = item;
+						node.GiveItem = item;
 					}
 				}
 			}
 
 			// assigning conditions clues and items
-			if (node.conditions.Length > 0)
+			if (node.Conditions.Length > 0)
 			{
-				foreach(Condition condition in node.conditions)
+				foreach(Condition condition in node.Conditions)
 				{
 					for (int i = 0; i < condition.Clues.Length; i++)
 					{

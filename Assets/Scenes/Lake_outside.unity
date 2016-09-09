@@ -170,15 +170,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 852135163}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &28137013
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +276,7 @@ GameObject:
   - 222: {fileID: 63630279}
   - 114: {fileID: 63630278}
   m_Layer: 0
-  m_Name: Node01
+  m_Name: '"Here is a second sentence"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,15 +349,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: Here is a second sentence
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1482358454}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &63719916
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +463,7 @@ GameObject:
   - 222: {fileID: 68416725}
   - 114: {fileID: 68416724}
   m_Layer: 0
-  m_Name: Node16
+  m_Name: '"Thanks for choosing option 3"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,15 +536,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: Thanks for choosing option 3
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1710314157}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &71301664
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,15 +629,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1228487547}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &92716557
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,15 +808,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &122758024
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,16 +845,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 1138698652}
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 11411150, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1715612502}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!224 &122758026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -962,7 +955,7 @@ GameObject:
   - 222: {fileID: 199732027}
   - 114: {fileID: 199732026}
   m_Layer: 0
-  m_Name: Node00
+  m_Name: '"This is the first sentence of ..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1035,15 +1028,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: This is the first sentence of the dialog
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 63630280}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &225973653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,15 +1121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1228487547}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &267543984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1141,7 @@ GameObject:
   - 222: {fileID: 267543987}
   - 114: {fileID: 267543986}
   m_Layer: 0
-  m_Name: Node12
+  m_Name: '"This is another common sentenc..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1223,15 +1214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: This is another common sentence
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 839585812}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &320195460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,16 +1308,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 1753268816}
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 11442904, guid: 1769017f2281a594192041a88f86ef17, type: 2}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1005635516}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &330964203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,16 +1525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 1394243104}
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 11440912, guid: 1769017f2281a594192041a88f86ef17, type: 2}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1005635516}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &363841916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1545,7 @@ GameObject:
   - 222: {fileID: 363841919}
   - 114: {fileID: 363841918}
   m_Layer: 0
-  m_Name: Node09
+  m_Name: '"You are only seeing this sente..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,15 +1618,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You are only seeing this sentence if you have collected clue B
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 267543988}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &400219716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,15 +1876,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1228487547}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!224 &486702658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2149,7 +2133,7 @@ GameObject:
   - 222: {fileID: 614446631}
   - 114: {fileID: 614446630}
   m_Layer: 0
-  m_Name: Node04
+  m_Name: '"You chose the second option"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2222,15 +2206,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You chose the second option
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 825273605}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &627243728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,15 +2299,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &649726299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,7 +2351,7 @@ GameObject:
   - 222: {fileID: 653651246}
   - 114: {fileID: 653651245}
   m_Layer: 0
-  m_Name: Node14
+  m_Name: '"Thanks for choosing option 1"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2442,15 +2424,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: Thanks for choosing option 1
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1710314157}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &682008312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,15 +2611,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &825273601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2631,7 @@ GameObject:
   - 222: {fileID: 825273604}
   - 114: {fileID: 825273603}
   m_Layer: 0
-  m_Name: Node06
+  m_Name: '"This sentence is displayed aft..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,15 +2704,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: This sentence is displayed after the second option
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1033815438}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &839585808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,7 +2724,7 @@ GameObject:
   - 222: {fileID: 839585811}
   - 114: {fileID: 839585810}
   m_Layer: 0
-  m_Name: Node13
+  m_Name: '"Now this sentence presents a t..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2821,18 +2800,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options:
-  - {fileID: 991837937}
-  - {fileID: 1380999139}
-  - {fileID: 1233033034}
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: Now this sentence presents a temporary choice
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &852135159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,15 +2893,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &878417856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,6 +2949,7 @@ MonoBehaviour:
   - {fileID: 11440912, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   - {fileID: 11442904, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 1603042618}
 --- !u!1 &879316897
 GameObject:
@@ -3200,15 +3175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &961486872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,6 +3225,7 @@ MonoBehaviour:
   Clues:
   - {fileID: 11492040, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 225973657}
 --- !u!1 &991837933
 GameObject:
@@ -3423,15 +3398,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1033815434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3418,7 @@ GameObject:
   - 222: {fileID: 1033815437}
   - 114: {fileID: 1033815436}
   m_Layer: 0
-  m_Name: Node07
+  m_Name: '"You are only seeing this sente..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3521,18 +3495,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 878417858}
-  - {fileID: 1599361409}
-  - {fileID: 1661859303}
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You are only seeing this sentence if you haven't collected any clue (or you
+    only have clueC, which doesn't count, because it sucks)
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 267543988}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1132845065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,15 +3589,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1138698650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3639,7 @@ MonoBehaviour:
   Clues: []
   Items:
   - {fileID: 11411150, guid: 69496e122ed5b9649893dfc56429dd5a, type: 2}
+  Nodes: []
   altNode: {fileID: 1132845069}
 --- !u!1 &1181897662
 GameObject:
@@ -3963,20 +3934,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 2064055987}
-  options:
-  - {fileID: 92716561}
-  - {fileID: 1188591596}
-  - {fileID: 1181897666}
-  - {fileID: 2121568116}
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!224 &1228487548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4207,7 +4172,7 @@ GameObject:
   - 222: {fileID: 1276300788}
   - 114: {fileID: 1276300787}
   m_Layer: 0
-  m_Name: Node05
+  m_Name: '"This sentence is displayed aft..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4280,15 +4245,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: This sentence is displayed after the first option
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1033815438}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1380999135
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,6 +4381,7 @@ MonoBehaviour:
   Clues:
   - {fileID: 11440912, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 71301668}
 --- !u!1 &1482358450
 GameObject:
@@ -4430,7 +4395,7 @@ GameObject:
   - 222: {fileID: 1482358453}
   - 114: {fileID: 1482358452}
   m_Layer: 0
-  m_Name: Node02
+  m_Name: '"The third sentence presents pe..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4505,17 +4470,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options:
-  - {fileID: 28137017}
-  - {fileID: 1527408100}
-  permanentChoice: 1
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: The third sentence presents permanent a choice
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 1
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1519974700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4601,15 +4563,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 627243732}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1527408096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,7 +4714,7 @@ GameObject:
   - 222: {fileID: 1581706295}
   - 114: {fileID: 1581706294}
   m_Layer: 0
-  m_Name: Node15
+  m_Name: '"Thanks for choosing option 2"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4826,15 +4787,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: Thanks for choosing option 2
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1710314157}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1599361407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4882,6 +4842,7 @@ MonoBehaviour:
   Clues:
   - {fileID: 11440912, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 2144256077}
 --- !u!1 &1603042614
 GameObject:
@@ -4895,7 +4856,7 @@ GameObject:
   - 222: {fileID: 1603042617}
   - 114: {fileID: 1603042616}
   m_Layer: 0
-  m_Name: Node10
+  m_Name: '"You are only seeing this sente..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4968,15 +4929,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You are only seeing this sentence if you have collected clues A and B
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 267543988}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1611679887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5082,6 +5042,7 @@ MonoBehaviour:
   Clues:
   - {fileID: 11442904, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 363841920}
 --- !u!1 &1665364246
 GameObject:
@@ -5095,7 +5056,7 @@ GameObject:
   - 222: {fileID: 1665364249}
   - 114: {fileID: 1665364248}
   m_Layer: 0
-  m_Name: Node18
+  m_Name: '"End of the example"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5168,15 +5129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: End of the example
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1673831225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,7 +5220,7 @@ GameObject:
   - 222: {fileID: 1710314156}
   - 114: {fileID: 1710314155}
   m_Layer: 0
-  m_Name: Node17
+  m_Name: '"One final common sentence"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5333,15 +5293,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: One final common sentence
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1665364250}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1715612501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,15 +5330,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!114 &1715612503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5574,6 +5532,7 @@ MonoBehaviour:
   Clues:
   - {fileID: 11442904, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 1867411593}
 --- !u!1 &1865454929
 GameObject:
@@ -5660,15 +5619,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 0}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1867411589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5754,15 +5712,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1228487547}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1868993960
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,7 +5732,7 @@ GameObject:
   - 222: {fileID: 1868993963}
   - 114: {fileID: 1868993962}
   m_Layer: 0
-  m_Name: Node03
+  m_Name: '"You chose the first option"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5848,15 +5805,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You chose the first option
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1276300789}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &1924771251
 GameObject:
   m_ObjectHideFlags: 0
@@ -6162,16 +6118,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - {fileID: 961486874}
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 11492040, guid: 1769017f2281a594192041a88f86ef17, type: 2}
-  giveItem: {fileID: 0}
+  Text: 
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 1005635516}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
 --- !u!1 &2064055985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,6 +6170,7 @@ MonoBehaviour:
   - {fileID: 11442904, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   - {fileID: 11492040, guid: 1769017f2281a594192041a88f86ef17, type: 2}
   Items: []
+  Nodes: []
   altNode: {fileID: 1865454933}
 --- !u!1 &2112664068
 GameObject:
@@ -6376,7 +6331,7 @@ GameObject:
   - 222: {fileID: 2144256076}
   - 114: {fileID: 2144256075}
   m_Layer: 0
-  m_Name: Node08
+  m_Name: '"You are only seeing this sente..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6449,12 +6404,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109c275ded047e847a1a5361c5ad2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions: []
-  options: []
-  permanentChoice: 0
-  giveClue: {fileID: 0}
-  giveItem: {fileID: 0}
+  Text: You are only seeing this sentence if you have collected clue A
+  NextNode: {fileID: 0}
+  PermanentChoice: 0
+  GiveClue: {fileID: 0}
+  GiveItem: {fileID: 0}
   LoadLevel: 
-  nextNode: {fileID: 267543988}
-  singleRead: 0
-  altNode: {fileID: 0}
+  SingleRead: 0
+  AltNode: {fileID: 0}
