@@ -6,32 +6,7 @@ using UnityEditor;
 
 public class Option : MonoBehaviour {
 
-	public Node targetNode;
-
-	string text;
-
-    [MenuItem("GameObject/FishGame/Dialog System/Option", false, 9)]
-    static void CreateCustomGameObject(MenuCommand menuCommand)
-    {
-        GameObject newOption = new GameObject("Option");
-        GameObjectUtility.SetParentAndAlign(newOption, menuCommand.context as GameObject);
-        Undo.RegisterCreatedObjectUndo(newOption, "Create " + newOption.name);
-        Selection.activeObject = newOption;
-        newOption.AddComponent<Option>();
-        newOption.AddComponent<Text>();
-        newOption.name += ((newOption.transform.parent.childCount < 10) ? "0" : "") + (newOption.transform.parent.childCount - 1);
-    }
-
-    void Start () {
-		text = GetComponent<Text> ().text;
-	}
+	public string Text;
+	public Node TargetNode;
 	
-	void Update () {
-	
-	}
-
-	public string getText(){
-		return text;
-	}
-
 }

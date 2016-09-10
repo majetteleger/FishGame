@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using UnityEditor;
 
+[Serializable]
 public class Clue : MonoBehaviour {
 	
 	public string Name;

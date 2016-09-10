@@ -2,79 +2,100 @@
 using UnityEngine.UI;
 using UnityEditor;
 
-[CustomEditor(typeof(Node))]
+[CustomEditor(typeof(Node)), CanEditMultipleObjects]
 public class NodeEditor : Editor
 {
-	private int _defaultLineHeight = 15;
-	private int _defaultLabelWidth = 115;
+	private Node _node;
+
+	void OnEnable()
+	{
+		_node = target as Node;
+		EditorStyles.textArea.wordWrap = true;
+	}
 
 	public override void OnInspectorGUI()
 	{
-		Node node = target as Node;
-		EditorStyles.textArea.wordWrap = true;
-		
 		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Text", GUILayout.Width(_defaultLabelWidth));
-		node.Text = EditorGUILayout.TextArea(node.Text);
+		EditorGUILayout.LabelField("Text", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.Text = EditorGUILayout.TextArea(_node.Text);
 		EditorGUILayout.EndHorizontal();
 
-		EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-		EditorGUILayout.LabelField("Next Node", GUILayout.Width(_defaultLabelWidth));
-		node.NextNode = (Node)EditorGUILayout.ObjectField(node.NextNode, typeof(Node), true);
+		EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+		EditorGUILayout.LabelField("Next Node", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.NextNode = (Node)EditorGUILayout.ObjectField(_node.NextNode, typeof(Node), true);
 		EditorGUILayout.EndHorizontal();
 
-		if (node.Options.Length > 0)
+		if (_node.Options.Length > 0)
 		{
-			EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-			EditorGUILayout.LabelField("Permanent Choice", GUILayout.Width(_defaultLabelWidth));
-			node.PermanentChoice = EditorGUILayout.Toggle(node.PermanentChoice);
+			EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+			EditorGUILayout.LabelField("Permanent Choice", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+			_node.PermanentChoice = EditorGUILayout.Toggle(_node.PermanentChoice);
 			EditorGUILayout.EndHorizontal();
 		}
 
-		EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-		EditorGUILayout.LabelField("Give Clue", GUILayout.Width(_defaultLabelWidth));
-		node.GiveClue = (Clue)EditorGUILayout.ObjectField(node.GiveClue, typeof(Clue), true);
+		EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+		EditorGUILayout.LabelField("Give Clue", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.GiveClue = (Clue)EditorGUILayout.ObjectField(_node.GiveClue, typeof(Clue), true);
 		EditorGUILayout.EndHorizontal();
 
-		EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-		EditorGUILayout.LabelField("Give Item", GUILayout.Width(_defaultLabelWidth));
-		node.GiveItem = (Item)EditorGUILayout.ObjectField(node.GiveItem, typeof(Item), true);
+		EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+		EditorGUILayout.LabelField("Give Item", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.GiveItem = (Item)EditorGUILayout.ObjectField(_node.GiveItem, typeof(Item), true);
 		EditorGUILayout.EndHorizontal();
 
-		EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-		EditorGUILayout.LabelField("Load Level", GUILayout.Width(_defaultLabelWidth));
-		node.LoadLevel = EditorGUILayout.TextField(node.LoadLevel);
+		EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+		EditorGUILayout.LabelField("Load Level", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.LoadLevel = EditorGUILayout.TextField(_node.LoadLevel);
 		EditorGUILayout.EndHorizontal();
 
-		EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-		EditorGUILayout.LabelField("Single Read", GUILayout.Width(_defaultLabelWidth));
-		node.SingleRead = EditorGUILayout.Toggle(node.SingleRead);
+		EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+		EditorGUILayout.LabelField("Single Read", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+		_node.SingleRead = EditorGUILayout.Toggle(_node.SingleRead);
 		EditorGUILayout.EndHorizontal();
 
-		if (node.SingleRead)
+		if (_node.SingleRead)
 		{
-			EditorGUILayout.BeginHorizontal(GUILayout.Height(_defaultLineHeight));
-			EditorGUILayout.LabelField("Alt Node", GUILayout.Width(_defaultLabelWidth));
-			node.AltNode = (Node)EditorGUILayout.ObjectField(node.AltNode, typeof(Node), true);
+			EditorGUILayout.BeginHorizontal(GUILayout.Height(EditorManager.DefaultEditorLineHeight));
+			EditorGUILayout.LabelField("Alt Node", GUILayout.Width(EditorManager.DefaultEditorLabelWidth));
+			_node.AltNode = (Node)EditorGUILayout.ObjectField(_node.AltNode, typeof(Node), true);
 			EditorGUILayout.EndHorizontal();
 		}
 
 		if (GUILayout.Button("Add Option"))
 		{
-			GameObject newOption = new GameObject("Option");
+			GameObject optionsFolder = _node.Options.Length != 0 ? _node.transform.FindChild("Options").gameObject : new GameObject("Options");
+
+			if (_node.Options.Length == 0)
+			{
+				optionsFolder.transform.SetParent(_node.transform);
+			}
+
+			GameObject newOption = new GameObject("<option>");
+			Undo.RegisterCreatedObjectUndo(newOption, "Create " + newOption.name);
 			newOption.AddComponent<Option>();
-			newOption.AddComponent<Text>();
-			newOption.transform.SetParent(node.transform);
+			newOption.transform.SetParent(optionsFolder.transform);
 		}
 
 		if (GUILayout.Button("Add Condition"))
 		{
-			GameObject newCondition = new GameObject("Condition");
+			GameObject conditionsFolder = _node.Conditions.Length != 0 ? _node.transform.FindChild("Conditions").gameObject : new GameObject("Conditions");
+
+			if(_node.Conditions.Length == 0)
+			{
+				conditionsFolder.transform.SetParent(_node.transform);
+			}
+			
+			GameObject newCondition = new GameObject("<condition>");
+			Undo.RegisterCreatedObjectUndo(newCondition, "Create " + newCondition.name);
 			newCondition.AddComponent<Condition>();
-			newCondition.transform.SetParent(node.transform);
+			newCondition.transform.SetParent(conditionsFolder.transform);
 		}
 
-		node.gameObject.name = (node.Text == "" || node.Text == null) ? "<node>" : "\"" + node.Text.Substring(0, node.Text.Length > 30 ? 30 : node.Text.Length) + (node.Text.Length > 30 ? "..." : "") + "\"";
-		
+		DisplayName();
+	}
+
+	private void DisplayName()
+	{
+		_node.gameObject.name = (_node.Text == "" || _node.Text == null) ? "<node>" : "\"" + _node.Text.Substring(0, _node.Text.Length > 30 ? 30 : _node.Text.Length) + (_node.Text.Length > 30 ? "..." : "") + "\"";
 	}
 }

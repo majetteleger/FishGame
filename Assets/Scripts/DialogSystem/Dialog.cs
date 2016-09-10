@@ -7,10 +7,10 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-[System.Serializable]
+[Serializable]
 public class Dialog : MonoBehaviour {
 
-	public string character;
+	public string Title;
 
 	private Node _currentNode;
 	private GameObject _dialogBox, _tempDialog, _optionButton, _tempOption;
@@ -22,13 +22,13 @@ public class Dialog : MonoBehaviour {
 	{
 		get
 		{
-			if (!PlayerPrefs.HasKey(character + "ReadNodes") || PlayerPrefs.GetString(character + "ReadNodes") == "")
+			if (!PlayerPrefs.HasKey(Title + "ReadNodes") || PlayerPrefs.GetString(Title + "ReadNodes") == "")
 			{
-				PlayerPrefs.SetString(character + "ReadNodes", "");
+				PlayerPrefs.SetString(Title + "ReadNodes", "");
 				return new List<int>();
 			}
 
-			string readNodesString = PlayerPrefs.GetString(character + "ReadNodes");
+			string readNodesString = PlayerPrefs.GetString(Title + "ReadNodes");
 			string[] readNodesStringArr = readNodesString.Remove(readNodesString.Length - 1).Split((new char[] { ',' }));
 			int[] readNodesIntArr = Array.ConvertAll<string, int>(readNodesStringArr, int.Parse);
 			List<int> readNodesList = readNodesIntArr.ToList();
@@ -149,9 +149,9 @@ public class Dialog : MonoBehaviour {
     public void DisplayNode()
     {
         _boxContents = _tempDialog.GetComponentsInChildren<Text>();
-        if(_boxContents[0].text != character)
+        if(_boxContents[0].text != Title)
         {
-            _boxContents[0].text = character;
+            _boxContents[0].text = Title;
         }
         _boxContents[1].text = _currentNode.Text;
         if (_currentNode.Options.Length > 0)
@@ -159,12 +159,12 @@ public class Dialog : MonoBehaviour {
             for (int i = 0; i < _currentNode.Options.Length; ++i)
             {
                 _tempOption = Instantiate(_optionButton, new Vector3(65 + 115 * i, 40, 0), Quaternion.identity) as GameObject;
-                _tempOption.GetComponentInChildren<Text>().text = _currentNode.Options[i].getText();
+                _tempOption.GetComponentInChildren<Text>().text = _currentNode.Options[i].Text;
                 _tempOption.transform.SetParent(_tempDialog.transform);
                 _tempOption.name = "Option" + (i + 1);
                 Button b = _tempOption.GetComponent<Button>();
                 int targetIndex = i;
-                b.onClick.AddListener(() => setTargetNode(_currentNode.Options[targetIndex].targetNode));
+                b.onClick.AddListener(() => setTargetNode(_currentNode.Options[targetIndex].TargetNode));
             }
             ClickManager.instance.CanClick = false;
         }
@@ -194,7 +194,7 @@ public class Dialog : MonoBehaviour {
 	{
 		if (!ReadNodes.Contains(node.Id))
 		{
-			PlayerPrefs.SetString(character + "ReadNodes", PlayerPrefs.GetString(character + "ReadNodes") + node.Id.ToString() + ",");
+			PlayerPrefs.SetString(Title + "ReadNodes", PlayerPrefs.GetString(Title + "ReadNodes") + node.Id.ToString() + ",");
 		}
 	}
 	
@@ -219,7 +219,7 @@ public class Dialog : MonoBehaviour {
 			{
 				foreach (Item item in ItemManager.instance.Items)
 				{
-					if (node.GiveItem.name == item.name)
+					if (item != null && node.GiveItem.name == item.name)
 					{
 						node.GiveItem = item;
 					}
@@ -233,6 +233,10 @@ public class Dialog : MonoBehaviour {
 				{
 					for (int i = 0; i < condition.Clues.Length; i++)
 					{
+						if(condition.Clues[i] == null)
+						{
+							break;
+						}
 						foreach (Clue clue in ClueManager.instance.Clues)
 						{
 							if (condition.Clues[i].name == clue.name)
@@ -244,9 +248,13 @@ public class Dialog : MonoBehaviour {
 
 					for (int i = 0; i < condition.Items.Length; i++)
 					{
+						if (condition.Items[i] == null)
+						{
+							break;
+						}
 						foreach (Item item in ItemManager.instance.Items)
 						{
-							if (condition.Items[i].name == item.name)
+							if (item != null && condition.Items[i].name == item.name)
 							{
 								condition.Items[i] = item;
 							}

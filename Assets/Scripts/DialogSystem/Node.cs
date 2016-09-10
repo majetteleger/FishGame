@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-[System.Serializable]
+[Serializable]
 public class Node : MonoBehaviour
 {
-	[Multiline]
 	public string Text;
 	public Node NextNode;
 	public bool PermanentChoice;
@@ -35,16 +35,5 @@ public class Node : MonoBehaviour
 	public int Id
 	{
 		get { return transform.GetSiblingIndex(); }
-	}
-
-	[MenuItem("GameObject/FishGame/Dialog System/Node", false, 8)]
-	static void CreateCustomGameObject(MenuCommand menuCommand)
-	{
-		GameObject newNode = new GameObject("Node");
-		GameObjectUtility.SetParentAndAlign(newNode, menuCommand.context as GameObject);
-		Undo.RegisterCreatedObjectUndo(newNode, "Create " + newNode.name);
-		Selection.activeObject = newNode;
-		newNode.AddComponent<Node>();
-		newNode.AddComponent<Text>();
 	}
 }
